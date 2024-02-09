@@ -7,6 +7,7 @@ import { Button } from 'react-bootstrap'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
+import './Header.css'
 
 const authenticatedOptions = (
 	<>
@@ -34,22 +35,10 @@ const unauthenticatedOptions = (
 	</>
 )
 
-const alwaysOptions = (
-	<>
-		<Nav.Link>
-			<Link to='/' style={{color:'black', textDecoration: 'none', }}>
-				Jobify
-			</Link>
-		</Nav.Link>
-	</>
-)
-
 const Header = ({ user }) => (
 		<Navbar expand={false} bg='primary' variant='dark'>
-			<Container fluid>
-				<Navbar.Brand>
-					{alwaysOptions}
-				</Navbar.Brand>
+
+				<Navbar.Brand href="/" className='center-navbar' >Jobify</Navbar.Brand>
 				<Navbar.Toggle aria-controls='basic-navbar-nav' />
 				<Navbar.Offcanvas
 					id='basic-navbar-nav'
@@ -88,7 +77,7 @@ const Header = ({ user }) => (
 						</Form>
 					</Offcanvas.Body>
 				</Navbar.Offcanvas>
-			</Container>
+
 		</Navbar>
 )
 
