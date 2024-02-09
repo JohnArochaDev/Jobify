@@ -2,16 +2,22 @@
 import React, { useState, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
+import { Container, Col, Row } from 'react-bootstrap'
 
 // import AuthenticatedRoute from './components/shared/AuthenticatedRoute'
 import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/shared/Header'
 import RequireAuth from './components/shared/RequireAuth'
-import Home from './components/Home'
+import Home from './components/Home/Home'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+
+// import components
+import JobDesc from './components/JobDesc/JobDesc'
+import JobList from './components/JobList/JobList'
+
 
 const App = () => {
 
@@ -69,6 +75,12 @@ const App = () => {
               </RequireAuth>}
           />
 				</Routes>
+				<Container fluid>
+					<Row>
+						<Col><JobList /></Col>
+						<Col xs={8}><JobDesc /></Col>
+					</Row>
+    		</Container>
 				{msgAlerts.map((msgAlert) => (
 					<AutoDismissAlert
 						key={msgAlert.id}

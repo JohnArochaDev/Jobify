@@ -37,7 +37,6 @@ const unauthenticatedOptions = (
 
 const Header = ({ user }) => (
 		<Navbar expand={false} bg='primary' variant='dark'>
-
 				<Navbar.Brand href="/" className='center-navbar' >Jobify</Navbar.Brand>
 				<Navbar.Toggle aria-controls='basic-navbar-nav' />
 				<Navbar.Offcanvas
@@ -77,7 +76,6 @@ const Header = ({ user }) => (
 						</Form>
 					</Offcanvas.Body>
 				</Navbar.Offcanvas>
-
 		</Navbar>
 )
 
