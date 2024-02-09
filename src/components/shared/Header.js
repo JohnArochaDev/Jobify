@@ -45,24 +45,6 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	// <Navbar bg='primary' variant='dark' expand='md'>
-	// 	<Navbar.Brand>
-  //           <Link to='/' style={linkStyle}>
-  //               Jobify
-  //           </Link>
-  //       </Navbar.Brand>
-	// 	<Navbar.Toggle aria-controls='basic-navbar-nav' />
-	// 	<Navbar.Collapse id='basic-navbar-nav'>
-	// 		<Nav className='ml-auto'>
-	// 			{user && (
-	// 				<span className='navbar-text mr-2'>Welcome, {user.email}</span>
-	// 			)}
-	// 			{alwaysOptions}
-	// 			{user ? authenticatedOptions : unauthenticatedOptions}
-	// 		</Nav>
-	// 	</Navbar.Collapse>
-	// </Navbar>
-	<>
 		<Navbar expand={false} bg='primary' variant='dark'>
 			<Container fluid>
 				<Navbar.Brand>
@@ -108,7 +90,6 @@ const Header = ({ user }) => (
 				</Navbar.Offcanvas>
 			</Container>
 		</Navbar>
-</>
 )
 
 export default Header
