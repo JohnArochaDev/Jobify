@@ -74,7 +74,7 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
     apiCall();
     setReload(!reload)
 
-  },[employmentTypes, distance, datePosted])
+  },[query, location, remoteOnly, employmentTypes, distance, datePosted])
 
   return (
     <>
@@ -85,10 +85,19 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
             <h3>Searching for {query} Jobs</h3>
           </Col>
           <Col style={{ display: 'flex', alignItems: 'center' }}>
-            <Form.Control style={{ marginLeft: '43vh', marginRight: '3vh', width: '40vh' }} type="text" placeholder="Search" />
-            <Button onClick={() => setModalShow(true)}>
-              Filter
-            </Button>
+            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+              <Form>
+                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                  <Form.Control style={{width: '30vh' }} type="text" placeholder="Search Jobs" />
+                  <Form.Control style={{ marginRight: '3vh', width: '30vh' }} type="text" placeholder="Location" />
+                  <Button type="submit" style={{ marginRight: '3vh'}} >Submit</Button>
+                </div>
+              </Form>
+
+              <Button onClick={() => setModalShow(true)}>
+                Filter
+              </Button>
+            </div>
           </Col>
           <MyVerticallyCenteredModal
             show={modalShow}
