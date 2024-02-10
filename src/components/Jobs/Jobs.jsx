@@ -9,17 +9,17 @@ require('dotenv').config()
 
 const axios = require('axios');
 
-export default function Jobs() {
+export default function Jobs({ query, setQuery, location, setLocation, distance, setDistance, language, setLanguage, remoteOnly, setRemoteOnly, datePosted, setDatePosted, employmentTypes, setEmploymentTypes, index, setIndex }) {
 
   //setstate for api call
-  const [query, setQuery] = useState(['Software Engineer'])
-  const [location, setLocation] = useState('United States')
-  const [distance, setDistance] = useState('1.0')
-  const [language, setLanguage] = useState('en_GB')
-  const [remoteOnly, setRemoteOnly] = useState('false')
-  const [datePosted, setDatePosted] = useState('month')
-  const [employmentTypes, setEmploymentTypes] = useState('fulltime;parttime;intern;contractor') //fulltime;parttime;intern;contractor
-  const [index, setIndex] = useState('0')
+  // const [query, setQuery] = useState(['Software Engineer'])
+  // const [location, setLocation] = useState('United States')
+  // const [distance, setDistance] = useState('1.0')
+  // const [language, setLanguage] = useState('en_GB')
+  // const [remoteOnly, setRemoteOnly] = useState('false')
+  // const [datePosted, setDatePosted] = useState('month')
+  // const [employmentTypes, setEmploymentTypes] = useState('fulltime;parttime;intern;contractor') //fulltime;parttime;intern;contractor
+  // const [index, setIndex] = useState('0')
 
   // setstate for the jobs and the selected job
   const [reload, setReload] = useState(true)
@@ -32,14 +32,14 @@ export default function Jobs() {
       method: 'GET',
       url: 'https://jobs-api14.p.rapidapi.com/list',
       params: {
-        query: 'Software Engineer',
-        location: 'United States',
-        distance: '1.0',
-        language: 'en_GB',
-        remoteOnly: 'false',
-        datePosted: 'month',
-        emplyomentTypes: 'fulltime;parttime;intern;contractor',
-        index: '0'
+        query: query,
+        location: location,
+        distance: distance,
+        language: language,
+        remoteOnly: remoteOnly,
+        datePosted: datePosted,
+        emplyomentTypes: employmentTypes,
+        index: index
       },
       headers: {
         // 'X-RapidAPI-Key': process.env.API_KEY,

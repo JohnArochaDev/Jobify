@@ -20,6 +20,16 @@ import Jobs from './components/Jobs/Jobs'
 
 const App = () => {
 
+	//setstate for api call
+	const [query, setQuery] = useState(['Software Engineer'])
+  const [location, setLocation] = useState('United States')
+  const [distance, setDistance] = useState('1.0')
+  const [language, setLanguage] = useState('en_GB')
+  const [remoteOnly, setRemoteOnly] = useState('false')
+  const [datePosted, setDatePosted] = useState('month')
+  const [employmentTypes, setEmploymentTypes] = useState('fulltime;parttime;intern;contractor') //fulltime;parttime;intern;contractor
+  const [index, setIndex] = useState('0')
+
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
 
@@ -56,7 +66,26 @@ const App = () => {
 					/>
 					<Route
 						path='/jobs'
-						element={<Jobs msgAlert={msgAlert} setUser={setUser} />}
+						element={<Jobs 
+							msgAlert={msgAlert} 
+							setUser={setUser}
+							query={query}
+							setQuery={setQuery}	
+							location={location}
+							setLocation={setLocation}
+							distance={distance}
+							setDistance={setDistance}
+							language={language}
+							setLanguage={setLanguage}
+							remoteOnly={remoteOnly}
+							setRemoteOnly={setRemoteOnly}
+							datePosted={datePosted}
+							setDatePosted={setDatePosted}
+							employmentTypes={employmentTypes}
+							setEmploymentTypes={setEmploymentTypes}
+							index={index}
+							setIndex={setIndex}
+							 />}
 					/>
 					<Route
 						path='/sign-in'
