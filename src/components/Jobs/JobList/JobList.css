@@ -1,10 +1,9 @@
 .smallText{
   font: 100 12px/16px 'Roboto', sans-serif;
-  margin-top: 5vh;
 }
 
 .jobCard {
-  height: 5vh;
+  height: 7vh;
   margin-bottom: 2vh;
   margin-right: 1vh;
 }

@@ -13,13 +13,13 @@ export default function Jobs() {
 
   //setstate for api call
   const [query, setQuery] = useState(['Software Engineer'])
-  const [location, setLocation] = useState(['United States'])
-  const [distance, setDistance] = useState(['1.0'])
-  const [language, setLanguage] = useState()
-  const [remoteOnly, setRemoteOnly] = useState()
-  const [datePosted, setDatePosted] = useState()
-  const [employmentTypes, setEmploymentTypes] = useState() //fulltime;parttime;intern;contractor
-  const [index, setIndex] = useState()
+  const [location, setLocation] = useState('United States')
+  const [distance, setDistance] = useState('1.0')
+  const [language, setLanguage] = useState('en_GB')
+  const [remoteOnly, setRemoteOnly] = useState('false')
+  const [datePosted, setDatePosted] = useState('month')
+  const [employmentTypes, setEmploymentTypes] = useState('fulltime;parttime;intern;contractor') //fulltime;parttime;intern;contractor
+  const [index, setIndex] = useState('0')
 
   // setstate for the jobs and the selected job
   const [reload, setReload] = useState(true)
