@@ -9,12 +9,6 @@
   margin-right: 1vh;
 }
 
-.card:hover {
-  background-color: #11A7BB;
-  cursor: pointer;
-  box-shadow: 2px .7px 3px black;
-}
-
 .scrollBox {
   height: 60vh;
   overflow-y: auto;
