@@ -31,14 +31,14 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
   const [jobs, setJobs] = useState([])
   const [selectedJob, setSelectedJob] = useState([null])
 
-  console.log('query', query)
-  console.log('location', location)
-  console.log('distance', distance)
-  console.log('language', language)
-  console.log('remoteOnly', remoteOnly)
-  console.log('datePosted', datePosted)
-  console.log('employmentTypes', employmentTypes)
-  console.log('index', index)
+  // console.log('query', query)
+  // console.log('location', location)
+  // console.log('distance', distance)
+  // console.log('language', language)
+  // console.log('remoteOnly', remoteOnly)
+  // console.log('datePosted', datePosted)
+  // console.log('employmentTypes', employmentTypes)
+  // console.log('index', index)
 
   useEffect(() => {
 
@@ -65,7 +65,7 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
     async function apiCall() {
       try {
       const response = await axios.request(options);// this is the API call
-        console.log('This is the response: \n', response.data);// this is the API response
+        // console.log('This is the response: \n', response.data);// this is the API response
         setJobs(response.data.jobs) 
       } catch (error) {
       console.error(error);
@@ -74,7 +74,7 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
     apiCall();
     setReload(!reload)
 
-  },[])
+  },[employmentTypes, distance, datePosted])
 
   return (
     <>
