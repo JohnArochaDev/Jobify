@@ -8,24 +8,9 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 const SignIn = (props) => {
-	// constructor(props) {
-	// 	super(props)
-
-	// 	this.state = {
-	// 		email: '',
-	// 		password: '',
-	// 	}
-	// }
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
     const navigate = useNavigate()
-
-	// handleChange = (event) =>
-	// 	this.setState({
-	// 		[event.target.name]: event.target.value,
-	// 	})
-
     let credentials
     let username
 
@@ -68,13 +53,13 @@ const SignIn = (props) => {
                 <h3>Sign In</h3>
                 <Form onSubmit={onSignIn}>
                     <Form.Group controlId='email'>
-                        <Form.Label>Email address</Form.Label>
+                        <Form.Label>Username</Form.Label>
                         <Form.Control
                             required
                             type='username'
                             name='email'
                             value={email}
-                            placeholder='Enter email'
+                            placeholder='Enter email or username'
                             onChange={e => setEmail(e.target.value)}
                         />
                     </Form.Group>
