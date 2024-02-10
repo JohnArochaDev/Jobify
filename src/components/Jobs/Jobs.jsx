@@ -26,6 +26,15 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
   const [jobs, setJobs] = useState([])
   const [selectedJob, setSelectedJob] = useState([null])
 
+  console.log('query', query)
+  console.log('location', location)
+  console.log('distance', distance)
+  console.log('language', language)
+  console.log('remoteOnly', remoteOnly)
+  console.log('datePosted', datePosted)
+  console.log('employmentTypes', employmentTypes)
+  console.log('index', index)
+
   useEffect(() => {
 
     const options = {//This is the API options to be sent to the API

@@ -21,7 +21,7 @@ import Jobs from './components/Jobs/Jobs'
 const App = () => {
 
 	//setstate for api call
-	const [query, setQuery] = useState(['Software Engineer'])
+	const [query, setQuery] = useState('Software Engineer')
   const [location, setLocation] = useState('United States')
   const [distance, setDistance] = useState('1.0')
   const [language, setLanguage] = useState('en_GB')
