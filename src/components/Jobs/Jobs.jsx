@@ -2,6 +2,9 @@ import { useState, useEffect } from "react"
 import JobDesc from "./JobDesc/JobDesc"
 import JobList from "./JobList/JobList"
 import { Container, Row, Col } from "react-bootstrap"
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import MyVerticallyCenteredModal from './Modal/FilterModal'
 import './Jobs.css'
 
 require('dotenv').config()
@@ -20,6 +23,8 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
   // const [datePosted, setDatePosted] = useState('month')
   // const [employmentTypes, setEmploymentTypes] = useState('fulltime;parttime;intern;contractor') //fulltime;parttime;intern;contractor
   // const [index, setIndex] = useState('0')
+
+  const [modalShow, setModalShow] = useState(false);
 
   // setstate for the jobs and the selected job
   const [reload, setReload] = useState(true)
@@ -74,9 +79,23 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
   return (
     <>
       <Container className="bgColor" fluid>
-        <Row className='emptyBar'>
-
-        </Row>
+      <Row className='emptyBar'>
+        <div className="filterButton" style={{ display: "flex", justifyContent: 'space-around' }}>
+          <Col style={{ display: 'flex', alignItems: 'center', marginLeft: '5vh' }} >
+            <h3>Searching for {query} Jobs</h3>
+          </Col>
+          <Col style={{ display: 'flex', alignItems: 'center' }}>
+            <Form.Control style={{ marginLeft: '43vh', marginRight: '3vh', width: '40vh' }} type="text" placeholder="Search" />
+            <Button onClick={() => setModalShow(true)}>
+              Filter
+            </Button>
+          </Col>
+          <MyVerticallyCenteredModal
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+          />
+        </div>
+      </Row>
         <Container className="jobTitle">
           <Row >
             <Col><JobList 
