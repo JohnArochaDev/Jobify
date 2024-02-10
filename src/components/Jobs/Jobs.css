@@ -1,0 +1,10 @@
+.emptyBar{
+  width: 100vw;
+  height: 15vh;
+  margin-right: 20vh;
+  box-shadow:0px 1px 7px black;
+}
+
+.jobTitle {
+margin-top: 10vh;
+}
