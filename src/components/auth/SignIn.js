@@ -26,12 +26,20 @@ const SignIn = (props) => {
 	// 		[event.target.name]: event.target.value,
 	// 	})
 
+    let credentials
+    let username
+
 	const onSignIn = (event) => {
 		event.preventDefault()
         console.log('the props', props)
 		const { msgAlert, setUser } = props
 
-        const credentials = {email, password}
+        if (email.includes('@')) {
+            credentials = {email, password}
+        } else {
+            username = email
+            credentials = {username, password}
+        }
 
 		signIn(credentials)
 			.then((res) => setUser(res.data.user))
@@ -52,7 +60,7 @@ const SignIn = (props) => {
 					variant: 'danger',
 				})
 			})
-	}
+	    }
 
     return (
         <div className='row'>
@@ -63,7 +71,7 @@ const SignIn = (props) => {
                         <Form.Label>Email address</Form.Label>
                         <Form.Control
                             required
-                            type='email'
+                            type='username'
                             name='email'
                             value={email}
                             placeholder='Enter email'
