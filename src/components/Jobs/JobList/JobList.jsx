@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import './JobList.css';
 
-export default function JobList({ jobs, reload, setReload }) {
+export default function JobList({ jobs, reload, setReload, setSelectedJob }) {
 
 
   return(
@@ -9,7 +9,14 @@ export default function JobList({ jobs, reload, setReload }) {
       <h2>Job List</h2>
         <div className='scrollBox' >
           {jobs ? (jobs.map((job) =>(
-          <Card style={{height:  '15vh' }} className='card'>
+          <Card 
+          style={{height:  '15vh' }} 
+          className='card'
+          onClick={() => {
+            setSelectedJob(job)
+            console.log('This is the job: ', job)
+          }}
+          >
             <Card.Body >
               <Card.Title>{job.title}</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">{job.company}</Card.Subtitle>

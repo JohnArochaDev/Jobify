@@ -1,0 +1,41 @@
+.smallText{
+  font: 100 12px/16px 'Roboto', sans-serif;
+  margin-top: 5vh;
+}
+
+.card {
+  height: 5vh;
+  margin-bottom: 2vh;
+  margin-right: 1vh;
+}
+
+.card:hover {
+  background-color: #11A7BB;
+  cursor: pointer;
+  box-shadow: 2px .7px 3px black;
+}
+
+.scrollBox {
+  height: 60vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 5vh;
+}
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+  border: 1px solid black;
+  border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+  background: black;  
+  border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+  background: black;  
+  }

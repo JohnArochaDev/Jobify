@@ -16,9 +16,9 @@
 }
 
 .scrollBox {
-  height: 60vh;
+  height: 55vh;
   overflow-y: auto;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
   margin-top: 5vh;
 }
 

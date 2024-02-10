@@ -13,9 +13,7 @@ export default function Jobs() {
 
   const [reload, setReload] = useState(true)
   const [jobs, setJobs] = useState([])
-
-  let currentJob
-
+  const [selectedJob, setSelectedJob] = useState([null])
 
   useEffect(() => {
 
@@ -62,11 +60,12 @@ export default function Jobs() {
         <Container className="jobTitle">
           <Row >
             <Col><JobList 
+            setSelectedJob={setSelectedJob}
             jobs={jobs} 
             reload={reload}
             setReload={setReload}
             /></Col>
-            <Col xs={8}><JobDesc jobs={currentJob} /></Col>
+            <Col xs={8}><JobDesc job={selectedJob} /></Col>
           </Row>
         </Container>
       </Container>

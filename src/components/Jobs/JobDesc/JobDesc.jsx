@@ -1,12 +1,21 @@
 import './JobDesc.css';
+import Card from 'react-bootstrap/Card';
 
-export default function JobDesc() {
+export default function JobDesc({ job }) {
   return (
     <>
       <h2>Job Description</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      </p>
+      <div >
+        {job ? (<Card style={{height:  '15vh' }} className='card'>
+          <Card.Body >
+            <Card.Title>{job.title}</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">{job.company}</Card.Subtitle>
+            <Card.Text>
+              <p className='smallText' >{job.location} - {job.employmentType} - {job.datePosted}</p>
+            </Card.Text>
+          </Card.Body>
+        </Card>) : (<h3>Loading...</h3>)}
+      </div>
     </>
   )
 }
