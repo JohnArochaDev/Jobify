@@ -93,6 +93,22 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
           <MyVerticallyCenteredModal
             show={modalShow}
             onHide={() => setModalShow(false)}
+            query={query}
+						setQuery={setQuery}	
+						location={location}
+						setLocation={setLocation}
+						distance={distance}
+						setDistance={setDistance}
+						language={language}
+						setLanguage={setLanguage}
+						remoteOnly={remoteOnly}
+						setRemoteOnly={setRemoteOnly}
+						datePosted={datePosted}
+						setDatePosted={setDatePosted}
+						employmentTypes={employmentTypes}
+						setEmploymentTypes={setEmploymentTypes}
+						index={index}
+						setIndex={setIndex}
           />
         </div>
       </Row>

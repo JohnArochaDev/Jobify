@@ -5,6 +5,12 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
 export default function MyVerticallyCenteredModal(props) {
+
+  // deastructure the props, specifically the state and the setstate for the API call variables
+  const { query, setQuery, location, setLocation, distance, setDistance, language, setLanguage, remoteOnly, setRemoteOnly, datePosted, setDatePosted, employmentTypes, setEmploymentTypes, index, setIndex } = props;
+  // need to add function for the filters to be transferred into the necessary strings for the API calls
+  
+
   return (
     <Modal
       {...props}
@@ -21,7 +27,7 @@ export default function MyVerticallyCenteredModal(props) {
         <Form style={{ display: "flex", justifyContent: 'space-evenly' }} >
           <fieldset>
             <Form.Group as={Col} className="mb-3" style={{width: '20vh'}} >
-              <Form.Label as="legend" column sm={5}>
+              <Form.Label as="legend" column sm={7}>
                 Job Type
               </Form.Label>
               <Col sm={10}>
@@ -35,7 +41,7 @@ export default function MyVerticallyCenteredModal(props) {
           </fieldset>
           <fieldset>
             <Form.Group as={Col} className="mb-3">
-              <Form.Label as="legend" column sm={5} style={{width: '20vh'}}>
+              <Form.Label as="legend" column sm={7} style={{width: '20vh'}}>
                 Distance
               </Form.Label>
               <Col sm={10}>
@@ -49,7 +55,7 @@ export default function MyVerticallyCenteredModal(props) {
           </fieldset>
           <fieldset>
             <Form.Group as={Col} className="mb-3" style={{width: '20vh'}}>
-              <Form.Label as="legend" column sm={5}>
+              <Form.Label as="legend" column sm={7}>
                 Date Posted
               </Form.Label>
               <Col sm={10}>
