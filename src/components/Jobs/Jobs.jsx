@@ -11,6 +11,17 @@ const axios = require('axios');
 
 export default function Jobs() {
 
+  //setstate for api call
+  const [query, setQuery] = useState(['Software Engineer'])
+  const [location, setLocation] = useState(['United States'])
+  const [distance, setDistance] = useState(['1.0'])
+  const [language, setLanguage] = useState()
+  const [remoteOnly, setRemoteOnly] = useState()
+  const [datePosted, setDatePosted] = useState()
+  const [employmentTypes, setEmploymentTypes] = useState() //fulltime;parttime;intern;contractor
+  const [index, setIndex] = useState()
+
+  // setstate for the jobs and the selected job
   const [reload, setReload] = useState(true)
   const [jobs, setJobs] = useState([])
   const [selectedJob, setSelectedJob] = useState([null])
@@ -21,7 +32,7 @@ export default function Jobs() {
       method: 'GET',
       url: 'https://jobs-api14.p.rapidapi.com/list',
       params: {
-        query: 'Web Developer',
+        query: 'Software Engineer',
         location: 'United States',
         distance: '1.0',
         language: 'en_GB',
