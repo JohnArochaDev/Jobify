@@ -88,9 +88,9 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
               <Form>
                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                  <Form.Control style={{ marginRight: '1vh', width: '30vh' }} type="text" placeholder="Search Jobs" />
+                  <Form.Control style={{ marginRight: '1vh', marginLeft: '17vh', width: '30vh' }} type="text" placeholder="Search Jobs" />
                   <Form.Control style={{ marginRight: '1vh', width: '30vh' }} type="text" placeholder="Location" />
-                  <Button type="submit" style={{ marginRight: '3vh'}} >Submit</Button>
+                  <Button type="submit" style={{ marginRight: '1vh'}} >Submit</Button>
                 </div>
               </Form>
 
