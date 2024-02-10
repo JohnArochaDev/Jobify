@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import { useRef } from 'react';
 import JobDesc from "./JobDesc/JobDesc"
 import JobList from "./JobList/JobList"
 import { Container, Row, Col } from "react-bootstrap"
@@ -35,7 +34,7 @@ export default function Jobs() {
       },
       headers: {
         // 'X-RapidAPI-Key': process.env.API_KEY,
-        'X-RapidAPI-Key': 'API key in .env file',
+        'X-RapidAPI-Key': '8e77011efdmsh377cd21c79be48ep1c1c04jsn09a4be0b5faa',
         'X-RapidAPI-Host': 'jobs-api14.p.rapidapi.com'
       }
     };
@@ -56,7 +55,7 @@ export default function Jobs() {
 
   return (
     <>
-      <Container fluid>
+      <Container className="bgColor" fluid>
         <Row className='emptyBar'>
 
         </Row>

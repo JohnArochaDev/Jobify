@@ -1,5 +1,4 @@
-import React, { Fragment } from 'react'
-import { Container } from 'react-bootstrap'
+import React from 'react'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import { NavDropdown } from 'react-bootstrap'
 import { Form } from 'react-bootstrap'
@@ -36,8 +35,8 @@ const unauthenticatedOptions = (
 )
 
 const Header = ({ user }) => (
-		<Navbar expand={false} bg='primary' variant='dark'>
-				<Navbar.Brand href="/" className='center-navbar' >Jobify</Navbar.Brand>
+		<Navbar expand={false} className='navBarColor'>
+				<Navbar.Brand href="/" className='center-navbar' style={{color: "white", fontWeight: 'bold', fontSize: '3vh' }} >Jobify</Navbar.Brand>
 				<Navbar.Toggle aria-controls='basic-navbar-nav' />
 				<Navbar.Offcanvas
 					id='basic-navbar-nav'
