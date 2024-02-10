@@ -10,7 +10,7 @@ export default function JobList({ jobs, reload, setReload, setSelectedJob }) {
           {jobs ? (jobs.map((job) =>(
           <Card 
           style={{height:  '15vh' }} 
-          className='card'
+          className='jobCard'
           onClick={() => {
             setSelectedJob(job)
             console.log('This is the job: ', job)

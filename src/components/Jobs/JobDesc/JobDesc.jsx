@@ -5,7 +5,7 @@ export default function JobDesc({ job }) {
   return (
     <>
       <div className='scrollBox' >
-        {job ? (<Card className='card'>
+        {job ? (<Card className='descCard'>
           <Card.Body >
             <Card.Title> <img src={job.image} alt="" /> {job.title}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">{job.company}</Card.Subtitle>
