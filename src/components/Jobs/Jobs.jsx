@@ -3,6 +3,7 @@ import JobDesc from "./JobDesc/JobDesc"
 import JobList from "./JobList/JobList"
 import { Container, Row, Col } from "react-bootstrap"
 import Button from 'react-bootstrap/Button';
+
 import Form from 'react-bootstrap/Form';
 import MyVerticallyCenteredModal from './Modal/FilterModal'
 import './Jobs.css'
@@ -145,7 +146,8 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
             /></Col>
             <Col xs={8}><JobDesc 
             job={selectedJob} 
-            /></Col>
+            />
+            </Col>
           </Row>
         </Container>
       </Container>
