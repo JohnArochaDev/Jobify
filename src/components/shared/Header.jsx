@@ -57,10 +57,8 @@ const Header = ({ user }) => (
 								<NavDropdown.Item>
 									<Link to='jobs' >Jobs</Link>
 								</NavDropdown.Item>
-								<NavDropdown.Item href="/applied">Applied Jobs</NavDropdown.Item>
-								<NavDropdown.Divider />
-								<NavDropdown.Item href="#action5">
-									Something else here
+								<NavDropdown.Item href="/applied">
+									<Link to='applied' >Applied</Link>
 								</NavDropdown.Item>
 							</NavDropdown>
 						</Nav>
