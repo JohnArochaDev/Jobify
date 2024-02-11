@@ -10,6 +10,10 @@ import Modal from 'react-bootstrap/Modal';
 export default function JobDesc({ job }) {
 
   const [show, setShow] = useState(false);
+  const [img, setImg] = useState('')
+  const [title, setTitle] = useState('')
+  const [company, setCompany] = useState('')
+  const [status, setStatus] = useState('')
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
