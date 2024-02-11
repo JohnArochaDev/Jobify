@@ -1,8 +1,16 @@
 import { Container } from "react-bootstrap"
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import { useEffect } from "react";
 
 export default function Applied() {
+
+  // useEffect(() => {
+
+  // }, [])
+
+  // ALL THE SAME HEAD MODEL WITH DIFFERENT STATUS, MAKE SURE TO REFER TOTHE RIGHT PLACE AT THE RIGHT TIME
+
   return (
     <Container>
       <Tabs
@@ -12,16 +20,16 @@ export default function Applied() {
         fill
       >
         <Tab eventKey="saved" title="Saved">
-          Tab content for Home
+          <h2 style={{textAlign: 'center', textDecoration: 'underline'}} >Saved Jobs</h2>
         </Tab>
         <Tab eventKey="applied" title="Applied">
-          Tab content for Profile
+          <h2 style={{textAlign: 'center', textDecoration: 'underline'}} >Applied</h2>
         </Tab>
         <Tab eventKey="interview" title="Interview">
-          Tab content for Loooonger Tab
+          <h2 style={{textAlign: 'center', textDecoration: 'underline'}} >Interviews</h2>
         </Tab>
         <Tab eventKey="rejected" title="Rejected" >
-          Tab content for Contact
+          <h2 style={{textAlign: 'center', textDecoration: 'underline'}} >Rejections</h2>
         </Tab>
       </Tabs>
     </Container>
