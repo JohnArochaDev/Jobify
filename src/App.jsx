@@ -86,11 +86,12 @@ const App = () => {
 							setEmploymentTypes={setEmploymentTypes}
 							index={index}
 							setIndex={setIndex}
+							user={user}
 							 />}
 					/>
 					<Route
 						path='/applied'
-						element={<Applied msgAlert={msgAlert} setUser={setUser} />}
+						element={<Applied msgAlert={msgAlert} setUser={setUser} user={user} />}
 					/>
 					<Route
 						path='/sign-in'

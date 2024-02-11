@@ -5,10 +5,11 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-const axios = require('axios');
+import { createJob } from '../../../api/jobs';
+import { Form } from 'react-router-dom';
 
 
-export default function JobDesc({ job }) {
+export default function JobDesc({ job, user }) {
 
   // state for opening modal
   const [show, setShow] = useState(false);
@@ -18,44 +19,14 @@ export default function JobDesc({ job }) {
   const [title, setTitle] = useState('')
   const [company, setCompany] = useState('')
   const [status, setStatus] = useState('')
+  let value = 0
 
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  function createJob(user) {
-
-    let data = JSON.stringify({
-      "job": {
-        "img": img,
-        "title": title,
-        "company": company,
-        "status": status
-      }
-    });
-
-    let config = {
-      method: 'post',
-      maxBodyLength: Infinity,
-      url: 'http://localhost:8000/applied',
-      headers: { 
-        'Content-Type': 'application/json', 
-        'Authorization': `Token token=${user.token}`
-      },
-      data : data
-    };
-
-    axios.request(config)
-    .then((response) => {
-      console.log(JSON.stringify(response.data));
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-
-  }
-
-
+  const [userJob, setUserJob] = useState({
+    img: '',
+    title: '',
+    company: '',
+    status: '',
+})
 
   const [randomNumbers, setRandomNumbers] = useState([
     [uuid(), Math.floor(Math.random() * 100)],
@@ -69,7 +40,19 @@ export default function JobDesc({ job }) {
     [uuid(), Math.floor(Math.random() * 100)],
   ])
 
-  let value = 0
+
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const onSubmit = (e) => {
+    e.preventDefault()
+
+    createJob(user, userJob)
+        .catch(err => {
+            console.error(err)
+        })
+  }
+
 
   return (
     <>
@@ -98,9 +81,45 @@ export default function JobDesc({ job }) {
                   </Modal.Header>
                   <Modal.Footer className="d-flex justify-content-around">
                     {/* Make a form here that the button will input to the DB */}
-                    <Button onClick={handleClose} style={{width: '7vw', backgroundColor: 'green', borderColor: 'green'}} >
+
+
+                    <Form onSubmit={onSubmit }>
+                      <Form.Group hidden>
+                      <Form.Control hidden
+                          id="img"
+                          name="img"
+                          value={job.image}
+                      />
+                      </Form.Group>
+                      <Form.Group hidden>
+                      <Form.Control hidden
+                          id="title"
+                          name="title"
+                          value={job.title}
+                      />
+                      </Form.Group>
+                      <Form.Group hidden>
+                      <Form.Control hidden
+                          id="company"
+                          name="company"
+                          value={job.company}
+                      />
+                      </Form.Group>
+                      <Form.Group hidden>
+                      <Form.Control hidden
+                          id="status"
+                          name="status"
+                          value={'applied'}
+                      />
+                      </Form.Group>
+                      
+                      <Button onClick={handleClose} style={{width: '7vw', backgroundColor: 'green', borderColor: 'green'}} type="submit">Yes</Button>
+                    </Form>
+
+
+                    {/* <Button onClick={handleClose} style={{width: '7vw', backgroundColor: 'green', borderColor: 'green'}} >
                       Yes
-                    </Button>
+                    </Button> */}
                     <Button onClick={handleClose} style={{width: '7vw', backgroundColor: 'red', borderColor: 'red'}} >
                       No
                     </Button>

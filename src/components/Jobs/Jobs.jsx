@@ -13,7 +13,7 @@ require('dotenv').config()
 
 const axios = require('axios');
 
-export default function Jobs({ query, setQuery, location, setLocation, distance, setDistance, language, setLanguage, remoteOnly, setRemoteOnly, datePosted, setDatePosted, employmentTypes, setEmploymentTypes, index, setIndex }) {
+export default function Jobs({user, query, setQuery, location, setLocation, distance, setDistance, language, setLanguage, remoteOnly, setRemoteOnly, datePosted, setDatePosted, employmentTypes, setEmploymentTypes, index, setIndex }) {
 
   //setstate for api call
   // const [query, setQuery] = useState(['Software Engineer'])
@@ -146,7 +146,8 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
             reload={reload}
             setReload={setReload}
             /></Col>
-            <Col xs={8}><JobDesc 
+            <Col xs={8}><JobDesc
+            user={user} 
             job={selectedJob} 
             />
             </Col>
