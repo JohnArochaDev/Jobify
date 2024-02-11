@@ -24,6 +24,7 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
   // const [employmentTypes, setEmploymentTypes] = useState('fulltime;parttime;intern;contractor') //fulltime;parttime;intern;contractor
   // const [index, setIndex] = useState('0')
 
+
   const [modalShow, setModalShow] = useState(false);
 
   // setstate for the jobs and the selected job
@@ -143,7 +144,9 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
             reload={reload}
             setReload={setReload}
             /></Col>
-            <Col xs={8}><JobDesc job={selectedJob} /></Col>
+            <Col xs={8}><JobDesc 
+            job={selectedJob} 
+            /></Col>
           </Row>
         </Container>
       </Container>
