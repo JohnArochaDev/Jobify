@@ -31,6 +31,15 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
   const [jobs, setJobs] = useState([])
   const [selectedJob, setSelectedJob] = useState([null])
 
+  const [userLocation, setUserLocation] = useState('')
+  const [userJob, setUserJob] = useState('')
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    setQuery(userJob)
+    setLocation(userLocation)
+  }
+
   // console.log('query', query)
   // console.log('location', location)
   // console.log('distance', distance)
@@ -39,6 +48,11 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
   // console.log('datePosted', datePosted)
   // console.log('employmentTypes', employmentTypes)
   // console.log('index', index)
+
+  // function handleChanges(e) {
+  //   e.preventDefault()
+    
+  // }
 
   useEffect(() => {
 
@@ -88,9 +102,9 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
               <Form>
                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                  <Form.Control style={{ marginRight: '1vh', marginLeft: '17vh', width: '30vh' }} type="text" placeholder="Search Jobs" />
-                  <Form.Control style={{ marginRight: '1vh', width: '30vh' }} type="text" placeholder="Location" />
-                  <Button type="submit" style={{ marginRight: '1vh'}} >Submit</Button>
+                  <Form.Control style={{ marginRight: '1vh', marginLeft: '17vh', width: '30vh' }} type="text" placeholder="Search Jobs" id="jobSearch" onChange={e => setUserJob(e.target.value)} />
+                  <Form.Control style={{ marginRight: '1vh', width: '30vh' }} type="text" placeholder="Location" id="locationSearch" onChange={e => setUserLocation(e.target.value)} />
+                  <Button type="submit" style={{ marginRight: '1vh'}} onClick={handleSubmit} >Submit</Button>
                 </div>
               </Form>
 
