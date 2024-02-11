@@ -63,13 +63,11 @@ const App = () => {
 					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
 					<Route
 						path='/sign-up'
-						element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
+						element={<SignUp msgAlert={msgAlert} setUser={setUser} user={user} />}
 					/>
 					<Route
-						path='/jobs'
-						element={<Jobs 
+						path='/jobs' element={ <Jobs 
 							msgAlert={msgAlert} 
-							setUser={setUser}
 							query={query}
 							setQuery={setQuery}	
 							location={location}
@@ -90,12 +88,16 @@ const App = () => {
 							 />}
 					/>
 					<Route
-						path='/applied'
-						element={<Applied msgAlert={msgAlert} setUser={setUser} user={user} />}
+						path='/applied' element={<Applied 
+							msgAlert={msgAlert} 
+							user={user} 
+							/>}
 					/>
 					<Route
-						path='/sign-in'
-						element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
+						path='/sign-in' element={<SignIn 
+							msgAlert={msgAlert} 
+							setUser={setUser} 
+							/>}
 					/>
           <Route
             path='/sign-out'

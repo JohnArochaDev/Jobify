@@ -138,18 +138,21 @@ export default function Jobs({user, query, setQuery, location, setLocation, dist
       </Row>
         <Container className="jobTitle">
           <Row >
-            <Col> <JobList 
-            index={index}
-            setIndex={setIndex}
-            setSelectedJob={setSelectedJob}
-            jobs={jobs} 
-            reload={reload}
-            setReload={setReload}
-            /></Col>
-            <Col xs={8}><JobDesc
-            user={user} 
-            uJob={selectedJob} 
+            <Col> 
+            <JobList 
+              index={index}
+              setIndex={setIndex}
+              setSelectedJob={setSelectedJob}
+              jobs={jobs} 
+              reload={reload}
+              setReload={setReload}
             />
+            </Col>
+            <Col xs={8}>
+              <JobDesc 
+                user={user} 
+                uJob={selectedJob} 
+              />
             </Col>
           </Row>
         </Container>

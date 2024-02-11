@@ -18,8 +18,6 @@ export default function JobDesc({ uJob, user }) {
 
   let value = 0
 
-
-
   const [randomNumbers, setRandomNumbers] = useState([
     [uuid(), Math.floor(Math.random() * 100)],
     [uuid(), Math.floor(Math.random() * 100)],
@@ -32,15 +30,9 @@ export default function JobDesc({ uJob, user }) {
     [uuid(), Math.floor(Math.random() * 100)],
   ])
 
-
-
   const handleClose = () => setShow(false);
 
-
-
   const handleShow = () => setShow(true);
-
-
  
   const onSubmit = (e) => {
     e.preventDefault()
@@ -156,53 +148,3 @@ export default function JobDesc({ uJob, user }) {
     </>
   )
 }
-
-
-
-// return (
-//   <>
-//     <div className='scrollBox'>
-//       {uJob ? (
-//         <div>
-//           <Button onClick={handleShow}>Open Modal</Button>
-
-//           <Modal show={show} onHide={handleClose}>
-//             <Modal.Header closeButton>
-//               <Modal.Title>Modal Title</Modal.Title>
-//             </Modal.Header>
-//             <Modal.Body>
-//               <Form onSubmit={onSubmit}>
-//                 <Form.Group controlId="formImg">
-//                   <Form.Label>Image</Form.Label>
-//                   <Form.Control type="text" placeholder="Enter image URL" />
-//                 </Form.Group>
-//                 <Form.Group controlId="formTitle">
-//                   <Form.Label>Title</Form.Label>
-//                   <Form.Control type="text" placeholder="Enter title" />
-//                 </Form.Group>
-//                 <Form.Group controlId="formCompany">
-//                   <Form.Label>Company</Form.Label>
-//                   <Form.Control type="text" placeholder="Enter company" />
-//                 </Form.Group>
-//                 <Form.Group controlId="formStatus">
-//                   <Form.Label>Status</Form.Label>
-//                   <Form.Control type="text" placeholder="Enter status" />
-//                 </Form.Group>
-//                 <Button variant="primary" type="submit">
-//                   Submit
-//                 </Button>
-//               </Form>
-//             </Modal.Body>
-//             <Modal.Footer>
-//               <Button variant="secondary" onClick={handleClose}>
-//                 Close
-//               </Button>
-//             </Modal.Footer>
-//           </Modal>
-//         </div>
-//       ) : (
-//         <p>Loading...</p>
-//       )}
-//     </div>
-//   </>
-// );

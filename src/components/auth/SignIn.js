@@ -1,23 +1,26 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
 import { signIn } from '../../api/auth'
 import messages from '../shared/AutoDismissAlert/messages'
-
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
+
 const SignIn = (props) => {
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
+
+
     let credentials
     let username
+
 
 	const onSignIn = (event) => {
 		event.preventDefault()
         console.log('the props', props)
-		const { msgAlert, setUser } = props
+		const { msgAlert, setUser, user } = props
 
         if (email.includes('@')) {
             credentials = {email, password}
@@ -28,12 +31,14 @@ const SignIn = (props) => {
 
 		signIn(credentials)
 			.then((res) => setUser(res.data.user))
-			.then(() =>
+			.then(() => {
 				msgAlert({
 					heading: 'Sign In Success',
 					message: messages.signInSuccess,
 					variant: 'success',
 				})
+                console.log('this is user as It leaves the sign-in page', user)
+            }
 			)
 			.then(() => navigate('/'))
 			.catch((error) => {
@@ -46,6 +51,7 @@ const SignIn = (props) => {
 				})
 			})
 	    }
+        
 
     return (
         <div className='row'>
