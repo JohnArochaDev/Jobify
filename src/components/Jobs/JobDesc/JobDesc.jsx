@@ -6,27 +6,17 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { createJob } from '../../../api/jobs';
-import { Form } from 'react-router-dom';
+import { Form } from 'react-bootstrap';
 
 
-export default function JobDesc({ job, user }) {
+export default function JobDesc({ uJob, user }) {
 
   // state for opening modal
   const [show, setShow] = useState(false);
 
-  // state for form
-  const [img, setImg] = useState('')
-  const [title, setTitle] = useState('')
-  const [company, setCompany] = useState('')
-  const [status, setStatus] = useState('')
   let value = 0
 
-  const [userJob, setUserJob] = useState({
-    img: '',
-    title: '',
-    company: '',
-    status: '',
-})
+
 
   const [randomNumbers, setRandomNumbers] = useState([
     [uuid(), Math.floor(Math.random() * 100)],
@@ -44,8 +34,25 @@ export default function JobDesc({ job, user }) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+ 
   const onSubmit = (e) => {
     e.preventDefault()
+    let img = document.getElementById('img').value
+    let title = document.getElementById('title').value
+    let company = document.getElementById('company').value
+    let status = document.getElementById('status').value
+    console.log('img', img)
+    console.log('title', title)
+    console.log('company', company)
+    console.log('status', status)
+
+
+    let userJob = {
+        img: img,
+        title: title,
+        company: company,
+        status: status,
+    }
 
     createJob(user, userJob)
         .catch(err => {
@@ -57,63 +64,67 @@ export default function JobDesc({ job, user }) {
   return (
     <>
       <div className='scrollBox' >
-        {job ? (
+        {uJob ? (
         <Card className='descCard'>
-          <Card.Body >
-            <Card.Title> <img src={job.image} alt="" /> {job.title}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">{job.company}</Card.Subtitle>
-            <Card.Subtitle className="mb-2 text-muted">{job.location} - {job.employmentType} - {job.datePosted}</Card.Subtitle>
-            <Card.Text>
-              <p style={{whiteSpace: 'pre-wrap'}} > {job.description} </p>
+          <Card.Body key={uuid()} >
+            <Card.Title key={uuid()}> <img src={uJob.image} alt="" /> {uJob.title}</Card.Title>
+            <Card.Subtitle key={uuid()} className="mb-2 text-muted">{uJob.company}</Card.Subtitle>
+            <Card.Subtitle key={uuid()} className="mb-2 text-muted">{uJob.location} - {uJob.employmentType} - {uJob.datePosted}</Card.Subtitle>
+            <Card.Text key={uuid()} style={{whiteSpace: 'pre-wrap'}}>
+              {uJob.description}
               <br />
-              <ListGroup className="d-flex mx-auto" style={{ width: '30vw' }}>
-                <ListGroup.Item action>
+              <ListGroup key={uuid()} className="d-flex mx-auto" style={{ width: '30vw' }}>
+                <ListGroup.Item key={uuid()} action>
                     <h3 >Apply Now</h3>
-                </ListGroup.Item>
-                {job.jobProviders?.map((provider) => {
+                </ListGroup.Item >
+                {uJob.jobProviders?.map((provider) => {
                   value++
                   return <ListGroup.Item action href={provider.url} target="_blank" id={randomNumbers[value]} key={uuid()} onClick={handleShow} >{provider.jobProvider}  </ListGroup.Item>
                 })}
 
-                <Modal show={show} onHide={handleClose}>
+                <Modal key={uuid()} show={show} onHide={handleClose}>
                   <Modal.Header closeButton>
-                    <Modal.Title>Did you Apply with {job.company}? </Modal.Title>
+                    <Modal.Title>Did you Apply with {uJob.company}? </Modal.Title>
                   </Modal.Header>
                   <Modal.Footer className="d-flex justify-content-around">
                     {/* Make a form here that the button will input to the DB */}
 
 
                     <Form onSubmit={onSubmit }>
-                      <Form.Group hidden>
+                      <Form.Group >
                       <Form.Control hidden
                           id="img"
                           name="img"
-                          value={job.image}
+                          value={uJob.image}
+                          key={uuid()}
                       />
                       </Form.Group>
-                      <Form.Group hidden>
+                      <Form.Group >
                       <Form.Control hidden
                           id="title"
                           name="title"
-                          value={job.title}
+                          value={uJob.title}
+                          key={uuid()}
                       />
                       </Form.Group>
-                      <Form.Group hidden>
+                      <Form.Group >
                       <Form.Control hidden
                           id="company"
                           name="company"
-                          value={job.company}
+                          value={uJob.company}
+                          key={uuid()}
                       />
                       </Form.Group>
-                      <Form.Group hidden>
+                      <Form.Group >
                       <Form.Control hidden
                           id="status"
                           name="status"
                           value={'applied'}
+                          key={uuid()}
                       />
                       </Form.Group>
                       
-                      <Button onClick={handleClose} style={{width: '7vw', backgroundColor: 'green', borderColor: 'green'}} type="submit">Yes</Button>
+                      <Button style={{width: '7vw', backgroundColor: 'green', borderColor: 'green'}} type="submit">Yes</Button>
                     </Form>
 
 
@@ -136,7 +147,6 @@ export default function JobDesc({ job, user }) {
         <Card.ImgOverlay>
           <Card.Title></Card.Title>
           <Card.Text>
-            
           </Card.Text>
           <Card.Text></Card.Text>
         </Card.ImgOverlay>

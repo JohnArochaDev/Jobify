@@ -148,7 +148,7 @@ export default function Jobs({user, query, setQuery, location, setLocation, dist
             /></Col>
             <Col xs={8}><JobDesc
             user={user} 
-            job={selectedJob} 
+            uJob={selectedJob} 
             />
             </Col>
           </Row>
