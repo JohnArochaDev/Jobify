@@ -1,5 +1,6 @@
 import './JobDesc.css';
 import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 export default function JobDesc({ job }) {
   console.log('job', job)
@@ -14,12 +15,30 @@ export default function JobDesc({ job }) {
                   <Card.Text>
                     <p style={{whiteSpace: 'pre-wrap'}} > {job.description} </p>
                     <br />
-                    <p>{job.jobProviders?.map((provider) => (
-                      <a href={provider.url} target="_blank" rel="noreferrer">Apply</a>
-                    ))}</p>
+                    <ListGroup className="d-flex mx-auto" style={{ width: '30vw' }}>
+                      <ListGroup.Item action>
+                          <h3 >Apply Now</h3>
+                      </ListGroup.Item>
+                      {job.jobProviders?.map((provider) => (
+                        <ListGroup.Item action href={provider.url}>
+                          {provider.jobProvider}
+                        </ListGroup.Item>
+                      ))}
+                    </ListGroup>
                   </Card.Text>
                 </Card.Body>
-              </Card>) : (<h3>Loading...</h3>)}
+              </Card>) : (
+              <Card style={{ width: '44vw', height: '70vh' }} >
+              <Card.Img className='loadingImg' src="/photos/FLI.jpg" alt="Card image" />
+              <Card.ImgOverlay>
+                <Card.Title></Card.Title>
+                <Card.Text>
+                  
+                </Card.Text>
+                <Card.Text></Card.Text>
+              </Card.ImgOverlay>
+            </Card>
+              )}
             </div>
     </>
   )

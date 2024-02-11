@@ -33,3 +33,19 @@
   ::-webkit-scrollbar-thumb:hover {
   background: black;  
   }
+
+  @keyframes blink {
+    0% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.7;
+    }
+}
+.loadingImg {
+    animation: blink 2s;
+    animation-iteration-count: infinite;
+}

@@ -2,13 +2,11 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import { useEffect } from 'react';
 
 export default function MyVerticallyCenteredModal(props) {
 
   // deastructure the props, specifically the state and the setstate for the API call variables
-  const { query, setQuery, location, setLocation, distance, setDistance, language, setLanguage, remoteOnly, setRemoteOnly, datePosted, setDatePosted, employmentTypes, setEmploymentTypes, index, setIndex } = props;
+  const {setDistance, setDatePosted, setEmploymentTypes} = props;
   // need to add function for the filters to be transferred into the necessary strings for the API calls
   
   function selectAll(e) {
