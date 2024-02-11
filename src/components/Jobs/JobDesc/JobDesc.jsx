@@ -54,12 +54,14 @@ export default function JobDesc({ job }) {
                     <Modal.Title>Did you Apply with {job.company}? </Modal.Title>
                   </Modal.Header>
                   <Modal.Footer className="d-flex justify-content-around">
+                    {/* Make a form here that the button will input to the DB */}
                     <Button onClick={handleClose} style={{width: '7vw', backgroundColor: 'green', borderColor: 'green'}} >
                       Yes
                     </Button>
                     <Button onClick={handleClose} style={{width: '7vw', backgroundColor: 'red', borderColor: 'red'}} >
                       No
                     </Button>
+
                   </Modal.Footer>
                 </Modal>
 
