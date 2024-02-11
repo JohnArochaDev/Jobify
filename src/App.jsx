@@ -16,6 +16,7 @@ import ChangePassword from './components/auth/ChangePassword'
 
 // import components
 import Jobs from './components/Jobs/Jobs'
+import Applied from './components/Applied/Applied'
 
 
 const App = () => {
@@ -86,6 +87,10 @@ const App = () => {
 							index={index}
 							setIndex={setIndex}
 							 />}
+					/>
+					<Route
+						path='/applied'
+						element={<Applied msgAlert={msgAlert} setUser={setUser} />}
 					/>
 					<Route
 						path='/sign-in'
