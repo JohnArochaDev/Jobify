@@ -20,7 +20,7 @@ export default function JobDesc({ job }) {
                           <h3 >Apply Now</h3>
                       </ListGroup.Item>
                       {job.jobProviders?.map((provider) => (
-                        <ListGroup.Item action href={provider.url}>
+                        <ListGroup.Item action href={provider.url} target="_blank" >
                           {provider.jobProvider}
                         </ListGroup.Item>
                       ))}
