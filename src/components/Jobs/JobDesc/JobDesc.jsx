@@ -34,7 +34,7 @@ export default function JobDesc({ uJob, user }) {
 
   const handleShow = () => setShow(true);
  
-  const onSubmit = (e) => {
+  async function onSubmit(e) {
     e.preventDefault()
     console.log('Form submitted!');
     let img = document.getElementById('img').value
@@ -50,7 +50,10 @@ export default function JobDesc({ uJob, user }) {
     }
     console.log('userJob', userJob)
 
-    createJob(user, userJob)
+    await createJob(user, userJob)
+        .then( res => {
+          console.log('FORM WAS SAVED',res)
+        handleClose()})
         .catch(err => {
             console.error(err)
         })
