@@ -71,6 +71,7 @@ export default function MyVerticallyCenteredModal(props) {
     setEmploymentTypes(jobTypes)
     setDistance(distance)
     setDatePosted(datePosted)
+    props.onHide()
     return jobTypes;
   }
 
