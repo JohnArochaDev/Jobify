@@ -7,6 +7,14 @@ import './JobList.css';
 
 export default function JobList({ jobs, reload, setReload, setSelectedJob }) {
 
+  let loadAmount = [
+    [],
+    [],
+    [],
+    [],
+    [],
+  ]
+
 
   return(
     <>
@@ -27,8 +35,18 @@ export default function JobList({ jobs, reload, setReload, setSelectedJob }) {
               <p className='smallTextCard'>{job.location} - {job.employmentType} - {job.datePosted}</p>
             </Card.Text>
           </Card.Body>
-        </Card>))) : (<h3>Loading...</h3>)}
-        {jobs ? (
+        </Card>))) : (loadAmount.map((load) =>(
+        <Card style={{display: 'flex', flexDirection: 'column' }}>
+          <Card.Img className='loadingImg' src="/photos/SFLS.jpg" alt="Card image" />
+          <Card.ImgOverlay>
+            <Card.Title></Card.Title>
+            <Card.Text>
+            </Card.Text>
+            <Card.Text></Card.Text>
+          </Card.ImgOverlay>
+        </Card>
+        ))
+        )}
         <ButtonToolbar style={{display: 'flex'}} aria-label="Toolbar with button groups">
           <ButtonGroup style={{marginLeft: '25%', color: 'black', backgroundColor: '#2AB67B'}} className="me-2" aria-label="First group">
             <Button style={{ color: 'black', backgroundColor: '#2AB67B', border: 'green'}} >1</Button> 
@@ -37,7 +55,7 @@ export default function JobList({ jobs, reload, setReload, setSelectedJob }) {
             <Button style={{ color: 'black', backgroundColor: '#2AB67B', border: 'green'}} >4</Button>
             <Button style={{ color: 'black', backgroundColor: '#2AB67B', border: 'green'}} >5</Button>
           </ButtonGroup>
-        </ButtonToolbar>) : (<></>)}
+        </ButtonToolbar>
       </div>
     </>
   )

@@ -30,7 +30,7 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
 
   // setstate for the jobs and the selected job
   const [reload, setReload] = useState(true)
-  const [jobs, setJobs] = useState([])
+  const [jobs, setJobs] = useState()
   const [selectedJob, setSelectedJob] = useState(null)
 
   const [userLocation, setUserLocation] = useState('')
