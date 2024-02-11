@@ -2,6 +2,8 @@ import './JobDesc.css';
 import Card from 'react-bootstrap/Card';
 import uuid from 'react-uuid';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 
 export default function JobDesc({ job }) {
@@ -10,6 +12,41 @@ export default function JobDesc({ job }) {
     console.log('e.target.id', e.target.id)
     document.getElementById(e.target.id).style.backgroundColor = 'green'
   }
+  const [randomNumbers, setRandomNumbers] = useState(
+    [uuid(), Math.floor(Math.random() * 100)],
+    [uuid(), Math.floor(Math.random() * 100)],
+    [uuid(), Math.floor(Math.random() * 100)],
+    [uuid(), Math.floor(Math.random() * 100)],
+    [uuid(), Math.floor(Math.random() * 100)],
+    [uuid(), Math.floor(Math.random() * 100)],
+    [uuid(), Math.floor(Math.random() * 100)],
+    [uuid(), Math.floor(Math.random() * 100)],
+    [uuid(), Math.floor(Math.random() * 100)],
+    [uuid(), Math.floor(Math.random() * 100)],
+    )
+
+  let value = 0
+
+  console.log('randomNumbers', randomNumbers[value + 1])
+
+  useEffect(() => {
+
+    setRandomNumbers(
+      [uuid(), Math.floor(Math.random() * 100)],
+      [uuid(), Math.floor(Math.random() * 100)],
+      [uuid(), Math.floor(Math.random() * 100)],
+      [uuid(), Math.floor(Math.random() * 100)],
+      [uuid(), Math.floor(Math.random() * 100)],
+      [uuid(), Math.floor(Math.random() * 100)],
+      [uuid(), Math.floor(Math.random() * 100)],
+      [uuid(), Math.floor(Math.random() * 100)],
+      [uuid(), Math.floor(Math.random() * 100)],
+      [uuid(), Math.floor(Math.random() * 100)],
+    )
+
+    
+
+  }, [])
 
   return (
     <>
@@ -28,7 +65,7 @@ export default function JobDesc({ job }) {
                     <h3 >Apply Now</h3>
                 </ListGroup.Item>
                 {job.jobProviders?.map((provider) => {
-
+                  value++
                   return <ListGroup.Item action href={provider.url} target="_blank" id={uuid()} onClick={setCheckMark} >{provider.jobProvider}  </ListGroup.Item>
                 })}
               </ListGroup>

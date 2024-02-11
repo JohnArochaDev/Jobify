@@ -71,8 +71,7 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
         index: index
       },
       headers: {
-        // 'X-RapidAPI-Key': process.env.API_KEY,
-        'X-RapidAPI-Key': '8e77011efdmsh377cd21c79be48ep1c1c04jsn09a4be0b5faa',
+        'X-RapidAPI-Key': process.env.REACT_APP_APIKEY,
         'X-RapidAPI-Host': 'jobs-api14.p.rapidapi.com'
       }
     };
@@ -80,7 +79,6 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
     async function apiCall() {
       try {
       const response = await axios.request(options);// this is the API call
-        // console.log('This is the response: \n', response.data);// this is the API response
         setJobs(response.data.jobs) 
       } catch (error) {
       console.error(error);
