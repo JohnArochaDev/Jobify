@@ -5,18 +5,57 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+const axios = require('axios');
 
 
 export default function JobDesc({ job }) {
 
+  // state for opening modal
   const [show, setShow] = useState(false);
+
+  // state for form
   const [img, setImg] = useState('')
   const [title, setTitle] = useState('')
   const [company, setCompany] = useState('')
   const [status, setStatus] = useState('')
 
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  function createJob(user) {
+
+    let data = JSON.stringify({
+      "job": {
+        "img": img,
+        "title": title,
+        "company": company,
+        "status": status
+      }
+    });
+
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'http://localhost:8000/applied',
+      headers: { 
+        'Content-Type': 'application/json', 
+        'Authorization': `Token token=${user.token}`
+      },
+      data : data
+    };
+
+    axios.request(config)
+    .then((response) => {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+  }
+
+
 
   const [randomNumbers, setRandomNumbers] = useState([
     [uuid(), Math.floor(Math.random() * 100)],
