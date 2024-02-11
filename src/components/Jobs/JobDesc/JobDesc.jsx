@@ -2,17 +2,19 @@ import './JobDesc.css';
 import Card from 'react-bootstrap/Card';
 import uuid from 'react-uuid';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { useEffect } from 'react';
 import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 
 export default function JobDesc({ job }) {
 
-  function setCheckMark(e) {
-    console.log('e.target.id', e.target.id)
-    document.getElementById(e.target.id).style.backgroundColor = 'green'
-  }
-  const [randomNumbers, setRandomNumbers] = useState(
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const [randomNumbers, setRandomNumbers] = useState([
     [uuid(), Math.floor(Math.random() * 100)],
     [uuid(), Math.floor(Math.random() * 100)],
     [uuid(), Math.floor(Math.random() * 100)],
@@ -22,31 +24,9 @@ export default function JobDesc({ job }) {
     [uuid(), Math.floor(Math.random() * 100)],
     [uuid(), Math.floor(Math.random() * 100)],
     [uuid(), Math.floor(Math.random() * 100)],
-    [uuid(), Math.floor(Math.random() * 100)],
-    )
+  ])
 
   let value = 0
-
-  console.log('randomNumbers', randomNumbers[value + 1])
-
-  useEffect(() => {
-
-    setRandomNumbers(
-      [uuid(), Math.floor(Math.random() * 100)],
-      [uuid(), Math.floor(Math.random() * 100)],
-      [uuid(), Math.floor(Math.random() * 100)],
-      [uuid(), Math.floor(Math.random() * 100)],
-      [uuid(), Math.floor(Math.random() * 100)],
-      [uuid(), Math.floor(Math.random() * 100)],
-      [uuid(), Math.floor(Math.random() * 100)],
-      [uuid(), Math.floor(Math.random() * 100)],
-      [uuid(), Math.floor(Math.random() * 100)],
-      [uuid(), Math.floor(Math.random() * 100)],
-    )
-
-    
-
-  }, [])
 
   return (
     <>
@@ -66,8 +46,23 @@ export default function JobDesc({ job }) {
                 </ListGroup.Item>
                 {job.jobProviders?.map((provider) => {
                   value++
-                  return <ListGroup.Item action href={provider.url} target="_blank" id={uuid()} onClick={setCheckMark} >{provider.jobProvider}  </ListGroup.Item>
+                  return <ListGroup.Item action href={provider.url} target="_blank" id={randomNumbers[value]} key={uuid()} onClick={handleShow} >{provider.jobProvider}  </ListGroup.Item>
                 })}
+
+                <Modal show={show} onHide={handleClose}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Did you Apply with {job.company}? </Modal.Title>
+                  </Modal.Header>
+                  <Modal.Footer className="d-flex justify-content-around">
+                    <Button onClick={handleClose} style={{width: '7vw', backgroundColor: 'green', borderColor: 'green'}} >
+                      Yes
+                    </Button>
+                    <Button onClick={handleClose} style={{width: '7vw', backgroundColor: 'red', borderColor: 'red'}} >
+                      No
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+
               </ListGroup>
             </Card.Text>
           </Card.Body>

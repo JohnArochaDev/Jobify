@@ -55,6 +55,7 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
     
   // }
 
+
   useEffect(() => {
 
     const options = {//This is the API options to be sent to the API
