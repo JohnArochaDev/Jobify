@@ -5,7 +5,7 @@ import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import './JobList.css';
 
 
-export default function JobList({ jobs, reload, setReload, setSelectedJob }) {
+export default function JobList({ jobs, reload, setReload, setSelectedJob, index, setIndex}) {
 
   let loadAmount = [
     [],
@@ -49,11 +49,11 @@ export default function JobList({ jobs, reload, setReload, setSelectedJob }) {
         )}
         <ButtonToolbar style={{display: 'flex'}} aria-label="Toolbar with button groups">
           <ButtonGroup style={{marginLeft: '25%', color: 'black', backgroundColor: '#2AB67B'}} className="me-2" aria-label="First group">
-            <Button style={{ color: 'black', backgroundColor: '#2AB67B', border: 'green'}} >1</Button> 
-            <Button style={{ color: 'black', backgroundColor: '#2AB67B', border: 'green'}} >2</Button> 
-            <Button style={{ color: 'black', backgroundColor: '#2AB67B', border: 'green'}} >3</Button>
-            <Button style={{ color: 'black', backgroundColor: '#2AB67B', border: 'green'}} >4</Button>
-            <Button style={{ color: 'black', backgroundColor: '#2AB67B', border: 'green'}} >5</Button>
+            <Button style={{ color: 'black', backgroundColor: '#2AB67B', border: 'green'}} onClick={() => {setIndex('0'); console.log(index)}} >1</Button> 
+            <Button style={{ color: 'black', backgroundColor: '#2AB67B', border: 'green'}} onClick={() => {setIndex('1'); console.log(index)}} >2</Button> 
+            <Button style={{ color: 'black', backgroundColor: '#2AB67B', border: 'green'}} onClick={() => {setIndex('2'); console.log(index)}} >3</Button>
+            <Button style={{ color: 'black', backgroundColor: '#2AB67B', border: 'green'}} onClick={() => {setIndex('3'); console.log(index)}} >4</Button>
+            <Button style={{ color: 'black', backgroundColor: '#2AB67B', border: 'green'}} onClick={() => {setIndex('4'); console.log(index)}} >5</Button>
           </ButtonGroup>
         </ButtonToolbar>
       </div>

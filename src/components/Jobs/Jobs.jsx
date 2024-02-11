@@ -89,7 +89,7 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
     apiCall();
     setReload(!reload)
 
-  },[query, location, remoteOnly, employmentTypes, distance, datePosted])
+  },[query, location, remoteOnly, employmentTypes, distance, datePosted, index])
 
   return (
     <>
@@ -138,7 +138,9 @@ export default function Jobs({ query, setQuery, location, setLocation, distance,
       </Row>
         <Container className="jobTitle">
           <Row >
-            <Col><JobList 
+            <Col> <JobList 
+            index={index}
+            setIndex={setIndex}
             setSelectedJob={setSelectedJob}
             jobs={jobs} 
             reload={reload}
