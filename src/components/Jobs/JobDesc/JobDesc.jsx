@@ -33,19 +33,20 @@ export default function JobDesc({ uJob, user }) {
 
 
   const handleClose = () => setShow(false);
+
+
+
   const handleShow = () => setShow(true);
+
+
  
   const onSubmit = (e) => {
     e.preventDefault()
+    console.log('Form submitted!');
     let img = document.getElementById('img').value
     let title = document.getElementById('title').value
     let company = document.getElementById('company').value
     let status = document.getElementById('status').value
-    console.log('img', img)
-    console.log('title', title)
-    console.log('company', company)
-    console.log('status', status)
-
 
     let userJob = {
         img: img,
@@ -53,6 +54,7 @@ export default function JobDesc({ uJob, user }) {
         company: company,
         status: status,
     }
+    console.log('userJob', userJob)
 
     createJob(user, userJob)
         .catch(err => {
@@ -90,7 +92,7 @@ export default function JobDesc({ uJob, user }) {
                     {/* Make a form here that the button will input to the DB */}
 
 
-                    <Form onSubmit={onSubmit }>
+                    <Form onSubmit={onSubmit}>
                       <Form.Group >
                       <Form.Control hidden
                           id="img"
@@ -127,10 +129,6 @@ export default function JobDesc({ uJob, user }) {
                       <Button style={{width: '7vw', backgroundColor: 'green', borderColor: 'green'}} type="submit">Yes</Button>
                     </Form>
 
-
-                    {/* <Button onClick={handleClose} style={{width: '7vw', backgroundColor: 'green', borderColor: 'green'}} >
-                      Yes
-                    </Button> */}
                     <Button onClick={handleClose} style={{width: '7vw', backgroundColor: 'red', borderColor: 'red'}} >
                       No
                     </Button>
@@ -156,3 +154,53 @@ export default function JobDesc({ uJob, user }) {
     </>
   )
 }
+
+
+
+// return (
+//   <>
+//     <div className='scrollBox'>
+//       {uJob ? (
+//         <div>
+//           <Button onClick={handleShow}>Open Modal</Button>
+
+//           <Modal show={show} onHide={handleClose}>
+//             <Modal.Header closeButton>
+//               <Modal.Title>Modal Title</Modal.Title>
+//             </Modal.Header>
+//             <Modal.Body>
+//               <Form onSubmit={onSubmit}>
+//                 <Form.Group controlId="formImg">
+//                   <Form.Label>Image</Form.Label>
+//                   <Form.Control type="text" placeholder="Enter image URL" />
+//                 </Form.Group>
+//                 <Form.Group controlId="formTitle">
+//                   <Form.Label>Title</Form.Label>
+//                   <Form.Control type="text" placeholder="Enter title" />
+//                 </Form.Group>
+//                 <Form.Group controlId="formCompany">
+//                   <Form.Label>Company</Form.Label>
+//                   <Form.Control type="text" placeholder="Enter company" />
+//                 </Form.Group>
+//                 <Form.Group controlId="formStatus">
+//                   <Form.Label>Status</Form.Label>
+//                   <Form.Control type="text" placeholder="Enter status" />
+//                 </Form.Group>
+//                 <Button variant="primary" type="submit">
+//                   Submit
+//                 </Button>
+//               </Form>
+//             </Modal.Body>
+//             <Modal.Footer>
+//               <Button variant="secondary" onClick={handleClose}>
+//                 Close
+//               </Button>
+//             </Modal.Footer>
+//           </Modal>
+//         </div>
+//       ) : (
+//         <p>Loading...</p>
+//       )}
+//     </div>
+//   </>
+// );
