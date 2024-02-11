@@ -11,6 +11,8 @@ import { Form } from 'react-bootstrap';
 
 export default function JobDesc({ uJob, user }) {
 
+  console.log('user', user)
+
   // state for opening modal
   const [show, setShow] = useState(false);
 
@@ -97,15 +99,15 @@ export default function JobDesc({ uJob, user }) {
                       <Form.Control hidden
                           id="img"
                           name="img"
-                          value={uJob.image}
+                          defaultValue={uJob.image}
                           key={uuid()}
                       />
                       </Form.Group>
                       <Form.Group >
-                      <Form.Control hidden
+                      <Form.Control hidden 
                           id="title"
                           name="title"
-                          value={uJob.title}
+                          defaultValue={uJob.title}
                           key={uuid()}
                       />
                       </Form.Group>
@@ -113,7 +115,7 @@ export default function JobDesc({ uJob, user }) {
                       <Form.Control hidden
                           id="company"
                           name="company"
-                          value={uJob.company}
+                          defaultValue={uJob.company}
                           key={uuid()}
                       />
                       </Form.Group>
@@ -121,7 +123,7 @@ export default function JobDesc({ uJob, user }) {
                       <Form.Control hidden
                           id="status"
                           name="status"
-                          value={'applied'}
+                          defaultValue={'applied'}
                           key={uuid()}
                       />
                       </Form.Group>
