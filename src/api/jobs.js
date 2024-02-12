@@ -5,6 +5,11 @@ export const getAllJobs = () => {
   return axios(`${apiUrl}/applied`)
 }
 
+export function getApplied() {
+  return axios(`${apiUrl}/applied/applied`)
+}
+
+
 export const getOneJob = (id) => {
   return axios(`${apiUrl}/applied/${id}`)
 }

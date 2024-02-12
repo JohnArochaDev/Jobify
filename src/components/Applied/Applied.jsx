@@ -13,13 +13,13 @@ export default function Applied({ user }) {
 
   let data = '';
 
-  const [allJobs, setAllJobs] = useState(null)
+  const [appliedJobs, setAppliedJobs] = useState(null)
   const [reload, setReload] = useState(true)
 
   let configAll = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: 'http://localhost:8000/applied',
+    url: 'http://localhost:8000/applied/applied',
     headers: { 
       'Authorization': `Token token=${user.token}`
     },
@@ -38,9 +38,10 @@ export default function Applied({ user }) {
   }
 
   useEffect(() => {
+
     axios.request(configAll)
     .then((response) => {
-      setAllJobs(response.data.jobs)
+      setAppliedJobs(response.data.jobs)
       console.log('DB DATA', response.data)
     })
     .catch((error) => {
@@ -71,7 +72,7 @@ export default function Applied({ user }) {
           <h2 style={{ textAlign: 'center', textDecoration: 'underline' }}>Interviews</h2>
           <br />
           <Stack  style={{display: 'flex'}} gap={3}>
-            {allJobs ? (allJobs.map((job) => (
+            {appliedJobs ? (appliedJobs.map((job) => (
               <div className="p-2 apJobs" style={{ borderBottom: '1px solid grey' }}>
                 <img src={job.img} alt="" className="imgIcon" /> {job.company}  
                 <div style={{ textAlign: 'right' }}>
