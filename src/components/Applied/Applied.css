@@ -1,0 +1,15 @@
+.cardDB {
+  margin-top: 2vh;
+  border-bottom: 1px solid grey
+}
+
+.imgIcon {
+  width: 25px;
+  height: 25px;
+}
+
+.apJobs:hover {
+  background-color: #ebebeb;
+  cursor: pointer;
+
+}
