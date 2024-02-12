@@ -56,7 +56,8 @@ export default function JobDesc({ uJob, user }) {
     await createJob(user, userJob)
         .then( res => {
           console.log('FORM WAS SAVED',res)
-        handleClose()})
+        handleClose()
+      })
         .catch(err => {
             console.error(err)
         })
@@ -94,12 +95,12 @@ export default function JobDesc({ uJob, user }) {
 
                     <Form onSubmit={onSubmit}>
                       <Form.Group >
-                      <Form.Control hidden
-                          id="img"
-                          name="img"
-                          defaultValue={uJob.image}
-                          key={uuid()}
-                      />
+                        <Form.Control hidden
+                            id="img"
+                            name="img"
+                            defaultValue={uJob.image}
+                            key={uuid()}
+                        />
                       </Form.Group>
                       <Form.Group >
                       <Form.Control hidden 
