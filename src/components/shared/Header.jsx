@@ -47,25 +47,25 @@ const unauthenticatedOptions = (
 )
 
 const Header = ({ user }) => (
-		<Navbar expand={false} className='navBarColor'>
-				<Navbar.Brand href="/" className='center-navbar' style={{color: "white", fontSize: '3vh', fontFamily: 'Paytone One'}} >Jobify</Navbar.Brand>
-				<Navbar.Toggle aria-controls='basic-navbar-nav' />
-				<Navbar.Offcanvas
-					id='basic-navbar-nav'
-					placement="end"
-				>
-					<Offcanvas.Header closeButton>
-						<Offcanvas.Title >
-							<h2>Settings</h2>
-						</Offcanvas.Title>
-					</Offcanvas.Header>
-					<Offcanvas.Body>
-						<Nav className="justify-content-end flex-grow-1 pe-3">
-							{user ? authenticatedOptions : unauthenticatedOptions}
-						</Nav>
-					</Offcanvas.Body>
-				</Navbar.Offcanvas>
-		</Navbar>
+	<Navbar expand={false} className='navBarColor'>
+	<Navbar.Brand href="/" className='d-flex align-items-center mx-auto' style={{ color: 'white', fontSize: '3vh', fontFamily: 'Paytone One' }}>Handshake</Navbar.Brand>
+	<Navbar.Toggle aria-controls='basic-navbar-nav' />
+	<Navbar.Offcanvas
+		id='basic-navbar-nav'
+		placement="end"
+	>
+		<Offcanvas.Header closeButton>
+			<Offcanvas.Title>
+				<h2>Settings</h2>
+			</Offcanvas.Title>
+		</Offcanvas.Header>
+		<Offcanvas.Body>
+			<Nav className="justify-content-end flex-grow-1 pe-3">
+				{user ? authenticatedOptions : unauthenticatedOptions}
+			</Nav>
+		</Offcanvas.Body>
+	</Navbar.Offcanvas>
+</Navbar>
 )
 
 export default Header

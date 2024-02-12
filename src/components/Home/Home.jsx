@@ -34,32 +34,32 @@ export default function Home({ msgAlert, user, query, setQuery, location, setLoc
           </Form>
           <div  >
             <Row>
-              <Col style={{display: 'flex'}}> 
-                <Form style={{padding: '2vh 2vh 2vh',}} >
-                  <Button style={{width: '20vh'}} >Pilot</Button>
+              <Col style={{display: 'flex', justifyContent: 'center'}}> 
+                <Form style={{padding: '5vh 1vh 1vh',}} >
+                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} >Pilot</Button>
                 </Form>
-                <Form style={{padding: '2vh 2vh 2vh',}} >
-                  <Button style={{width: '20vh'}} >Software Engineer</Button>
+                <Form style={{padding: '5vh 1vh 1vh',}} >
+                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} >Software Engineer</Button>
                 </Form>
-                <Form style={{padding: '2vh 2vh 2vh',}} >
-                  <Button style={{width: '20vh'}} >Construction</Button>
+                <Form style={{padding: '5vh 1vh 1vh',}} >
+                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} >Construction</Button>
                 </Form>
-                <Form style={{padding: '2vh 2vh 2vh',}} >
-                  <Button style={{width: '20vh'}} >Bank Teller</Button>
+                <Form style={{padding: '5vh 1vh 1vh',}} >
+                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} >Bank Teller</Button>
                 </Form>
               </Col>
-              <Col style={{display: 'flex'}}> 
-                <Form style={{padding: '2vh 2vh 2vh',}} >
-                  <Button style={{width: '20vh'}} >Salesman</Button>
+              <Col style={{display: 'flex', justifyContent: 'center'}}> 
+                <Form style={{padding: '1vh 1vh 1vh',}} >
+                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} >Salesman</Button>
                 </Form>
-                <Form style={{padding: '2vh 2vh 2vh',}} >
-                  <Button style={{width: '20vh'}} >Maintenance</Button>
+                <Form style={{padding: '1vh 1vh 1vh',}} >
+                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} >Maintenance</Button>
                 </Form>
-                <Form style={{padding: '2vh 2vh 2vh',}} >
-                  <Button style={{width: '20vh'}} >Actor</Button>
+                <Form style={{padding: '1vh 1vh 1vh',}} >
+                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} >Actor</Button>
                 </Form>
-                <Form style={{padding: '2vh 2vh 2vh',}} >
-                  <Button style={{width: '20vh'}} >Delivery Driver</Button>
+                <Form style={{padding: '1vh 1vh 1vh',}} >
+                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} >Delivery Driver</Button>
                 </Form>
               </Col>
             </Row>
