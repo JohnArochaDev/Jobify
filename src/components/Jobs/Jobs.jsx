@@ -105,11 +105,11 @@ export default function Jobs({user, query, setQuery, location, setLocation, dist
                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                   <Form.Control style={{ marginRight: '1vh', marginLeft: '17vh', width: '30vh' }} type="text" placeholder="Search Jobs" id="jobSearch" onChange={e => setUserJob(e.target.value)} />
                   <Form.Control style={{ marginRight: '1vh', width: '30vh' }} type="text" placeholder="Location" id="locationSearch" onChange={e => setUserLocation(e.target.value)} />
-                  <Button type="submit" style={{ marginRight: '1vh'}} onClick={handleSubmit} >Submit</Button>
+                  <Button type="submit" style={{ marginRight: '1vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} onClick={handleSubmit} >Submit</Button>
                 </div>
               </Form>
 
-              <Button onClick={() => setModalShow(true)}>
+              <Button onClick={() => setModalShow(true)} style={{backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} >
                 Filter
               </Button>
             </div>

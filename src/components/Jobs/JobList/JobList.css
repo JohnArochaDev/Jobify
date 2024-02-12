@@ -10,7 +10,7 @@
 }
 
 .jobCard:hover {
-  background-color: #11A7BB;
+  background-color: #2fb47d;
   cursor: pointer;
   box-shadow: 2px .7px 3px black;
 }

@@ -36,7 +36,7 @@ const unauthenticatedOptions = (
 
 const Header = ({ user }) => (
 		<Navbar expand={false} className='navBarColor'>
-				<Navbar.Brand href="/" className='center-navbar' style={{color: "white", fontWeight: 'bold', fontSize: '3vh' }} >Jobify</Navbar.Brand>
+				<Navbar.Brand href="/" className='center-navbar' style={{color: "white", fontSize: '3vh', fontFamily: 'Paytone One'}} >Jobify</Navbar.Brand>
 				<Navbar.Toggle aria-controls='basic-navbar-nav' />
 				<Navbar.Offcanvas
 					id='basic-navbar-nav'

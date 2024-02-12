@@ -131,8 +131,8 @@ function doubleReload() {
                     ...
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'applied'); doubleReload()}} >Move to Applied</Dropdown.Item>
                     <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'interview'); doubleReload()}} >Move to Interview</Dropdown.Item>
-                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'applied'); doubleReload()}} >Move to Saved</Dropdown.Item>
                     <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'rejected'); doubleReload()}} >Move to Rejection</Dropdown.Item>
                     <Dropdown.Item href="#" onClick={() => {removeJob(user, job._id); doubleReload()}} >Delete Application</Dropdown.Item>
                   </Dropdown.Menu>
@@ -191,7 +191,7 @@ function doubleReload() {
                     ...
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'applied'); doubleReload()}} >Move to Interview</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'applied'); doubleReload()}} >Move to Applied</Dropdown.Item>
                     <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'saved'); doubleReload()}} >Move to Saved</Dropdown.Item>
                     <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'rejected'); doubleReload()}} >Move to Rejection</Dropdown.Item>
                     <Dropdown.Item href="#" onClick={() => {removeJob(user, job._id); doubleReload()}} >Delete Application</Dropdown.Item>
@@ -221,7 +221,7 @@ function doubleReload() {
                     ...
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'applied'); doubleReload()}} >Move to Interview</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'applied'); doubleReload()}} >Move to Applied</Dropdown.Item>
                     <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'interview'); doubleReload()}} >Move to Interview</Dropdown.Item>
                     <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'saved'); doubleReload()}} >Move to Saved</Dropdown.Item>
                     <Dropdown.Item href="#" onClick={() => {removeJob(user, job._id); doubleReload()}} >Delete Application</Dropdown.Item>
