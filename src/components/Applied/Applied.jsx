@@ -1,11 +1,12 @@
 import { Container } from "react-bootstrap"
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import Card from 'react-bootstrap/Card';
 import { useState, useEffect } from "react"
 import './Applied.css'
 import Stack from 'react-bootstrap/Stack';
 import Dropdown from 'react-bootstrap/Dropdown';
+
+import { updateJob } from "../../api/jobs";
 
 const axios = require('axios');
 
@@ -25,6 +26,17 @@ export default function Applied({ user }) {
     },
     data : data
   };
+
+  function updateStatus(interviewJob) {
+    interviewJob.status = 'interview'
+    updateJob(user, interviewJob)
+    .then((response) => {
+      console.log('JOB UPDATED', response)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
 
   useEffect(() => {
     axios.request(configAll)
@@ -69,7 +81,7 @@ export default function Applied({ user }) {
                     ...
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#">Move to Interview</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => (updateStatus(job))} >Move to Interview</Dropdown.Item>
                     <Dropdown.Item href="#">Delete Application</Dropdown.Item>
                     <Dropdown.Item href="#">Move to Rejection</Dropdown.Item>
                   </Dropdown.Menu>
