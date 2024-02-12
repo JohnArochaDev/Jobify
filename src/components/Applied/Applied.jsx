@@ -74,43 +74,48 @@ export default function Applied({ user }) {
 
   useEffect(() => {
 
-    axios.request(configSaved)// this is for the saved jobs
-    .then((response) => {
-      setAppliedJobs(response.data.jobs)
-      console.log('DB DATA', response.data)
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    function getAllApiData() {
 
-    axios.request(configApplied)// this is for the applied jobs
-    .then((response) => {
-      setSavedJobs(response.data.jobs)
-      console.log('DB DATA', response.data)
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      axios.request(configSaved)// this is for the saved jobs
+      .then((response) => {
+        setSavedJobs(response.data.jobs)
+        console.log('DB DATA', response.data)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-    axios.request(configInterview)// this is for the interview jobs
-    .then((response) => {
-      setInterviewJobs(response.data.jobs)
-      console.log('DB DATA', response.data)
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      axios.request(configApplied)// this is for the applied jobs
+      .then((response) => {
+        setAppliedJobs(response.data.jobs)
+        console.log('DB DATA', response.data)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-    axios.request(configRejected)// this is for the rejected applications
-    .then((response) => {
-      setRejectedJobs(response.data.jobs)
-      console.log('DB DATA', response.data)
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      axios.request(configInterview)// this is for the interview jobs
+      .then((response) => {
+        setInterviewJobs(response.data.jobs)
+        console.log('DB DATA', response.data)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-  }, [reload])
+      axios.request(configRejected)// this is for the rejected applications
+      .then((response) => {
+        setRejectedJobs(response.data.jobs)
+        console.log('DB DATA', response.data)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    }
+
+    getAllApiData()
+
+  })
 
   // ALL THE SAME HEAD MODEL WITH DIFFERENT STATUS, MAKE SURE TO REFER TOTHE RIGHT PLACE AT THE RIGHT TIME
 
