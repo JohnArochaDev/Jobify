@@ -43,7 +43,7 @@ export default function Home({ msgAlert, user, query, setQuery, location, setLoc
     <Container className="bgColor" fluid>
       <Row className='emptyBar' style={{ height: '60vh', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', backgroundColor: '#f8f8f8', boxShadow: '0px 5px 15px rgba(0, 0, 0, 0.1)' }}>
         <Col xs={12} md={6}>
-          <h2 style={{fontSize: '4vh', color: '#2AABB6', fontFamily: 'Paytone One', paddingTop: '10vh' }}>Lets <span style={{ color: '#2AB635' }}>introduce</span> you to your future</h2>
+          <h2 style={{fontSize: '4vh', color: '#2AABB6', fontFamily: 'Paytone One', paddingTop: '10vh' }}>Let's <span style={{ color: '#2AB635' }}>introduce</span> you to your future</h2>
           <Form>
             <InputGroup style={{ paddingTop: '5vh' }}>
               <Form.Control style={{ height: '5vh' }} type="text" placeholder="Search Jobs" id="jobSearch" onChange={e => setUserJob(e.target.value)} />
