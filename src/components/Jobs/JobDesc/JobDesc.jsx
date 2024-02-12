@@ -41,12 +41,15 @@ export default function JobDesc({ uJob, user }) {
     let title = document.getElementById('title').value
     let company = document.getElementById('company').value
     let status = document.getElementById('status').value
+    let details = document.getElementById('details').value
+
 
     let userJob = {
         img: img,
         title: title,
         company: company,
         status: status,
+        details: details,
     }
     console.log('userJob', userJob)
 
@@ -119,6 +122,14 @@ export default function JobDesc({ uJob, user }) {
                           id="status"
                           name="status"
                           defaultValue={'applied'}
+                          key={uuid()}
+                      />
+                      </Form.Group>
+                      <Form.Group >
+                      <Form.Control hidden
+                          id="details"
+                          name="details"
+                          defaultValue={uJob.location+' - '+uJob.employmentType+' - '+uJob.datePosted}
                           key={uuid()}
                       />
                       </Form.Group>

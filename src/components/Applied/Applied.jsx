@@ -75,7 +75,7 @@ export default function Applied({ user }) {
         <Tab eventKey="interview" title="Interview">
           <h2 style={{ textAlign: 'center', textDecoration: 'underline' }}>Interviews</h2>
           <br />
-          <Stack gap={3}>
+          <Stack  style={{display: 'flex'}} gap={3}>
             {allJobs ? (allJobs.map((job) => (
               <div className="p-2 apJobs" style={{ borderBottom: '1px solid grey' }}>
                 <img src={job.img} alt="" className="imgIcon" /> {job.company}  
@@ -91,10 +91,10 @@ export default function Applied({ user }) {
                   </Dropdown.Menu>
                 </Dropdown>
                 </div>
-                <br />
                 {job.title}
                 <br />
                 <br />
+                <p className='smallTextCard' >{job.details}</p>
               </div>))
             ) : (<p>Henlo</p>)}
           </Stack>
