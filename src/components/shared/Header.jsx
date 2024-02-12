@@ -1,8 +1,5 @@
 import React from 'react'
 import Offcanvas from 'react-bootstrap/Offcanvas'
-import { NavDropdown } from 'react-bootstrap'
-import { Form } from 'react-bootstrap'
-import { Button } from 'react-bootstrap'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
