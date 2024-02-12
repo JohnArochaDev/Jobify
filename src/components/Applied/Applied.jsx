@@ -57,22 +57,6 @@ export default function Applied({ user }) {
 
 
         <Tab eventKey="applied" title="Applied">
-          <h2 style={{textAlign: 'center', textDecoration: 'underline'}} >Applied</h2>
-          <br />
-          {allJobs ?( allJobs.map((job) => (
-          <Card className="cardDB">
-            <Card.Header> <img src={job.img} alt="" className="imgIcon" /> {job.company}</Card.Header>
-            <Card.Body>
-              <Card.Title>{job.title}</Card.Title>
-              <Card.Text>
-                {job.description}
-              </Card.Text>
-            </Card.Body>
-          </Card>))) : ( <p>Henlo</p>) }
-        </Tab>
-
-
-        <Tab eventKey="interview" title="Interview">
           <h2 style={{ textAlign: 'center', textDecoration: 'underline' }}>Interviews</h2>
           <br />
           <Stack  style={{display: 'flex'}} gap={3}>
@@ -98,6 +82,12 @@ export default function Applied({ user }) {
               </div>))
             ) : (<p>Henlo</p>)}
           </Stack>
+        </Tab>
+
+
+        <Tab eventKey="interview" title="Interview">
+          <h2 style={{ textAlign: 'center', textDecoration: 'underline' }} >Saved Jobs</h2>
+          <br />
         </Tab>
 
 
