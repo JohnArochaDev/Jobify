@@ -7,6 +7,15 @@ import './Home.css'
 
 export default function Home({ msgAlert, user, query, setQuery, location, setLocation } ) {
 
+  const button = {
+    width: '20vh',
+    backgroundColor: '#2AABB6',
+    border: '#2AABB6',
+    color: 'black',
+    transition: 'background-color 0.3s ease-in-out',
+    cursor: 'pointer',
+  };
+  
 	const [userLocation, setUserLocation] = useState('')
 	const [userJob, setUserJob] = useState('')
 
@@ -30,10 +39,11 @@ export default function Home({ msgAlert, user, query, setQuery, location, setLoc
 
 	return (
     <Container className="bgColor" fluid >
-      <Row className='emptyBar' style={{ height: '40vh', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', backgroundColor: '#F4FCFC' }}>
+      <Row className='emptyBar' style={{ height: '45vh', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', backgroundColor: '#F4FCFC' }}>
         <Col xs={12} md={6}>
+        <h2 style={{ color: '#2AABB6', fontFamily: 'Paytone One', paddingTop:'3vh' }}>Lets <span style={{color: '#2AB635'}} >introduce</span> you to your future</h2>
           <Form>
-            <InputGroup style={{paddingTop: '13vh'}}>
+            <InputGroup style={{paddingTop: '10vh'}}>
               <Form.Control type="text" placeholder="Search Jobs" id="jobSearch" onChange={e => setUserJob(e.target.value)} />
               <Form.Control type="text" placeholder="Location" id="locationSearch" onChange={e => setUserLocation(e.target.value)} />
               <Button type="submit" style={{ backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black' }} onClick={handleSubmit}>Submit</Button>
@@ -42,30 +52,30 @@ export default function Home({ msgAlert, user, query, setQuery, location, setLoc
             <Row>
               <Col style={{display: 'flex', justifyContent: 'center'}}> 
                 <Form style={{padding: '5vh 1vh 1vh',}} >
-                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} onClick={() => buttonSumbit('Pilot')} >Pilot</Button>
+                  <Button className='homeHover' style={button} onClick={() => buttonSumbit('Pilot')} >Pilot</Button>
                 </Form>
                 <Form style={{padding: '5vh 1vh 1vh',}} >
-                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} onClick={() => buttonSumbit('Software Engineer')} >Software Engineer</Button>
+                  <Button className='homeHover' style={button} onClick={() => buttonSumbit('Software Engineer')} >Software Engineer</Button>
                 </Form>
                 <Form style={{padding: '5vh 1vh 1vh',}} >
-                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} onClick={() => buttonSumbit('Construction')} >Construction</Button>
+                  <Button className='homeHover' style={button} onClick={() => buttonSumbit('Construction')} >Construction</Button>
                 </Form>
                 <Form style={{padding: '5vh 1vh 1vh',}} >
-                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} onClick={() => buttonSumbit('Bank Teller')} >Bank Teller</Button>
+                  <Button className='homeHover' style={button} onClick={() => buttonSumbit('Bank Teller')} >Bank Teller</Button>
                 </Form>
               </Col>
               <Col style={{display: 'flex', justifyContent: 'center'}}> 
                 <Form style={{padding: '1vh 1vh 1vh',}} >
-                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} onClick={() => buttonSumbit('Salesman')} >Salesman</Button>
+                  <Button className='homeHover' style={button} onClick={() => buttonSumbit('Salesman')} >Salesman</Button>
                 </Form>
                 <Form style={{padding: '1vh 1vh 1vh',}} >
-                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} onClick={() => buttonSumbit('Maintenance')} >Maintenance</Button>
+                  <Button className='homeHover' style={button} onClick={() => buttonSumbit('Maintenance')} >Maintenance</Button>
                 </Form>
                 <Form style={{padding: '1vh 1vh 1vh',}} >
-                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} onClick={() => buttonSumbit('Actor')} >Actor</Button>
+                  <Button className='homeHover' style={button} onClick={() => buttonSumbit('Actor')} >Actor</Button>
                 </Form>
                 <Form style={{padding: '1vh 1vh 1vh',}} >
-                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} onClick={() => buttonSumbit('Delivery Driver')} >Delivery Driver</Button>
+                  <Button className='homeHover' style={button} onClick={() => buttonSumbit('Delivery Driver')} >Delivery Driver</Button>
                 </Form>
               </Col>
             </Row>
