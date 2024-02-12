@@ -13,10 +13,24 @@ export default function Applied({ user }) {
 
   let data = '';
 
+  const [savedJobs, setSavedJobs] = useState(null)
   const [appliedJobs, setAppliedJobs] = useState(null)
+  const [interviewJobs, setInterviewJobs] = useState(null)
+  const [rejectedJobs, setRejectedJobs] = useState(null)
+
   const [reload, setReload] = useState(true)
 
-  let configAll = {
+  let configSaved = {
+    method: 'get',
+    maxBodyLength: Infinity,
+    url: 'http://localhost:8000/applied/saved',
+    headers: { 
+      'Authorization': `Token token=${user.token}`
+    },
+    data : data
+  };
+
+  let configApplied = {
     method: 'get',
     maxBodyLength: Infinity,
     url: 'http://localhost:8000/applied/applied',
@@ -25,6 +39,27 @@ export default function Applied({ user }) {
     },
     data : data
   };
+
+  let configInterview = {
+    method: 'get',
+    maxBodyLength: Infinity,
+    url: 'http://localhost:8000/applied/interview',
+    headers: { 
+      'Authorization': `Token token=${user.token}`
+    },
+    data : data
+  };
+
+  let configRejected = {
+    method: 'get',
+    maxBodyLength: Infinity,
+    url: 'http://localhost:8000/applied/rejected',
+    headers: { 
+      'Authorization': `Token token=${user.token}`
+    },
+    data : data
+  };
+
 
   function updateStatus(interviewJob, status) {
     interviewJob.status = status
@@ -39,9 +74,36 @@ export default function Applied({ user }) {
 
   useEffect(() => {
 
-    axios.request(configAll)
+    axios.request(configSaved)// this is for the saved jobs
     .then((response) => {
       setAppliedJobs(response.data.jobs)
+      console.log('DB DATA', response.data)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+    axios.request(configApplied)// this is for the applied jobs
+    .then((response) => {
+      setSavedJobs(response.data.jobs)
+      console.log('DB DATA', response.data)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+    axios.request(configInterview)// this is for the interview jobs
+    .then((response) => {
+      setInterviewJobs(response.data.jobs)
+      console.log('DB DATA', response.data)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+    axios.request(configRejected)// this is for the rejected applications
+    .then((response) => {
+      setRejectedJobs(response.data.jobs)
       console.log('DB DATA', response.data)
     })
     .catch((error) => {
