@@ -74,8 +74,6 @@ export default function Applied({ user }) {
 
   useEffect(() => {
 
-
-
     axios.request(configSaved)// this is for the saved jobs
     .then((response) => {
       setAppliedJobs(response.data.jobs)
@@ -112,7 +110,7 @@ export default function Applied({ user }) {
       console.log(error);
     });
 
-  })
+  }, [reload])
 
   // ALL THE SAME HEAD MODEL WITH DIFFERENT STATUS, MAKE SURE TO REFER TOTHE RIGHT PLACE AT THE RIGHT TIME
 
