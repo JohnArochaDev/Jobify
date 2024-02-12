@@ -1,16 +1,24 @@
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import './Home.css'
 
 export default function Home({ msgAlert, user, query, setQuery, location, setLocation } ) {
+
 	const [userLocation, setUserLocation] = useState('')
 	const [userJob, setUserJob] = useState('')
 
+	const navigate = useNavigate()
+
 	function handleSubmit(e) {
 		e.preventDefault()
+		console.log('user location', userLocation)
+		console.log('user job', userJob)
 		setLocation(userLocation)
 		setQuery(userJob)
+		navigate('/jobs')
 	}
 
 	return (
@@ -29,4 +37,3 @@ export default function Home({ msgAlert, user, query, setQuery, location, setLoc
 		</Container>
 	)
 }
-
