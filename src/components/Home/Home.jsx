@@ -21,6 +21,13 @@ export default function Home({ msgAlert, user, query, setQuery, location, setLoc
 		navigate('/jobs')
 	}
 
+  function buttonSumbit(jobName) {
+    let loc = 'United States'
+    setQuery(jobName)
+    setLocation(loc)
+    navigate('/jobs')
+  }
+
 	return (
     <Container className="bgColor" fluid >
       <Row className='emptyBar' style={{ height: '40vh', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', backgroundColor: '#F4FCFC' }}>
@@ -32,40 +39,36 @@ export default function Home({ msgAlert, user, query, setQuery, location, setLoc
               <Button type="submit" style={{ backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black' }} onClick={handleSubmit}>Submit</Button>
             </InputGroup>
           </Form>
-          <div  >
             <Row>
               <Col style={{display: 'flex', justifyContent: 'center'}}> 
                 <Form style={{padding: '5vh 1vh 1vh',}} >
-                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} >Pilot</Button>
+                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} onClick={() => buttonSumbit('Pilot')} >Pilot</Button>
                 </Form>
                 <Form style={{padding: '5vh 1vh 1vh',}} >
-                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} >Software Engineer</Button>
+                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} onClick={() => buttonSumbit('Software Engineer')} >Software Engineer</Button>
                 </Form>
                 <Form style={{padding: '5vh 1vh 1vh',}} >
-                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} >Construction</Button>
+                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} onClick={() => buttonSumbit('Construction')} >Construction</Button>
                 </Form>
                 <Form style={{padding: '5vh 1vh 1vh',}} >
-                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} >Bank Teller</Button>
+                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} onClick={() => buttonSumbit('Bank Teller')} >Bank Teller</Button>
                 </Form>
               </Col>
               <Col style={{display: 'flex', justifyContent: 'center'}}> 
                 <Form style={{padding: '1vh 1vh 1vh',}} >
-                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} >Salesman</Button>
+                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} onClick={() => buttonSumbit('Salesman')} >Salesman</Button>
                 </Form>
                 <Form style={{padding: '1vh 1vh 1vh',}} >
-                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} >Maintenance</Button>
+                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} onClick={() => buttonSumbit('Maintenance')} >Maintenance</Button>
                 </Form>
                 <Form style={{padding: '1vh 1vh 1vh',}} >
-                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} >Actor</Button>
+                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} onClick={() => buttonSumbit('Actor')} >Actor</Button>
                 </Form>
                 <Form style={{padding: '1vh 1vh 1vh',}} >
-                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} >Delivery Driver</Button>
+                  <Button style={{width: '20vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} onClick={() => buttonSumbit('Delivery Driver')} >Delivery Driver</Button>
                 </Form>
               </Col>
             </Row>
-          </div>
-
-
         </Col>
       </Row>
     </Container>
