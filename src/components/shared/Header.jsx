@@ -10,26 +10,23 @@ import './Header.css'
 
 const authenticatedOptions = (
 	<>
-		<Nav.Item>
-			<Link to='jobs' >
+		<Nav.Item style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
+			<Link to='jobs' style={{color: 'black', textDecoration: 'none'}} >
 				Jobs
 			</Link>
 		</Nav.Item>
-		<br />
-		<Nav.Item>
-			<Link to='applied' >
+		<Nav.Item style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
+			<Link to='applied' style={{color: 'black', textDecoration: 'none'}} >
 				My Jobs
 			</Link>
 		</Nav.Item>
-		<br />
-		<Nav.Item>
-			<Link to='change-password' >
+		<Nav.Item style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
+			<Link to='change-password' style={{color: 'black', textDecoration: 'none'}} >
 				Change Password
 			</Link>
 		</Nav.Item>
-		<br />
-		<Nav.Item>
-			<Link to='sign-out' >
+		<Nav.Item style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
+			<Link to='sign-out' style={{color: 'black', textDecoration: 'none'}} >
 				Sign Out
 			</Link>
 		</Nav.Item>
@@ -39,17 +36,16 @@ const authenticatedOptions = (
 
 const unauthenticatedOptions = (
 	<>
-	      <Nav.Item>
-		    	<Link to='jobs' >Jobs</Link>
+	      <Nav.Item style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
+		    	<Link to='jobs' style={{color: 'black', textDecoration: 'none' }} >Jobs</Link>
         </Nav.Item>
-				<br />
-        <Nav.Item>
-		    	<Link to='sign-up' >Sign Up</Link>
+				<Nav.Item style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
+		    	<Link to='sign-in' style={{color: 'black', textDecoration: 'none'}} >Sign In</Link>
         </Nav.Item>
-				<br />
-        <Nav.Item>
-		    	<Link to='sign-in' >Sign In</Link>
+        <Nav.Item style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
+		    	<Link to='sign-up' style={{color: 'black', textDecoration: 'none'}} >Sign Up</Link>
         </Nav.Item>
+
 	</>
 )
 
@@ -63,7 +59,7 @@ const Header = ({ user }) => (
 				>
 					<Offcanvas.Header closeButton>
 						<Offcanvas.Title >
-							Settings
+							<h2>Settings</h2>
 						</Offcanvas.Title>
 					</Offcanvas.Header>
 					<Offcanvas.Body>
