@@ -15,17 +15,6 @@ const axios = require('axios');
 
 export default function Jobs({user, query, setQuery, location, setLocation, distance, setDistance, language, setLanguage, remoteOnly, setRemoteOnly, datePosted, setDatePosted, employmentTypes, setEmploymentTypes, index, setIndex }) {
 
-  //setstate for api call
-  // const [query, setQuery] = useState(['Software Engineer'])
-  // const [location, setLocation] = useState('United States')
-  // const [distance, setDistance] = useState('1.0')
-  // const [language, setLanguage] = useState('en_GB')
-  // const [remoteOnly, setRemoteOnly] = useState('false')
-  // const [datePosted, setDatePosted] = useState('month')
-  // const [employmentTypes, setEmploymentTypes] = useState('fulltime;parttime;intern;contractor') //fulltime;parttime;intern;contractor
-  // const [index, setIndex] = useState('0')
-
-
   const [modalShow, setModalShow] = useState(false);
 
   // setstate for the jobs and the selected job
@@ -41,21 +30,6 @@ export default function Jobs({user, query, setQuery, location, setLocation, dist
     setQuery(userJob)
     setLocation(userLocation)
   }
-
-  // console.log('query', query)
-  // console.log('location', location)
-  // console.log('distance', distance)
-  // console.log('language', language)
-  // console.log('remoteOnly', remoteOnly)
-  // console.log('datePosted', datePosted)
-  // console.log('employmentTypes', employmentTypes)
-  // console.log('index', index)
-
-  // function handleChanges(e) {
-  //   e.preventDefault()
-    
-  // }
-
 
   useEffect(() => {
 
