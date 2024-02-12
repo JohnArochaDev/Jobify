@@ -11,25 +11,44 @@ import './Header.css'
 const authenticatedOptions = (
 	<>
 		<Nav.Item>
+			<Link to='jobs' >
+				Jobs
+			</Link>
+		</Nav.Item>
+		<br />
+		<Nav.Item>
+			<Link to='applied' >
+				My Jobs
+			</Link>
+		</Nav.Item>
+		<br />
+		<Nav.Item>
 			<Link to='change-password' >
 				Change Password
 			</Link>
 		</Nav.Item>
+		<br />
 		<Nav.Item>
 			<Link to='sign-out' >
 				Sign Out
 			</Link>
 		</Nav.Item>
+
 	</>
 )
 
 const unauthenticatedOptions = (
 	<>
-        <Nav.Item>
-		    <Link to='sign-up' >Sign Up</Link>
+	      <Nav.Item>
+		    	<Link to='jobs' >Jobs</Link>
         </Nav.Item>
+				<br />
         <Nav.Item>
-		    <Link to='sign-in' >Sign In</Link>
+		    	<Link to='sign-up' >Sign Up</Link>
+        </Nav.Item>
+				<br />
+        <Nav.Item>
+		    	<Link to='sign-in' >Sign In</Link>
         </Nav.Item>
 	</>
 )
@@ -50,27 +69,7 @@ const Header = ({ user }) => (
 					<Offcanvas.Body>
 						<Nav className="justify-content-end flex-grow-1 pe-3">
 							{user ? authenticatedOptions : unauthenticatedOptions}
-							<NavDropdown
-								title="Dropdown"
-								
-							>
-								<NavDropdown.Item>
-									<Link to='jobs' >Jobs</Link>
-								</NavDropdown.Item>
-								<NavDropdown.Item href="/applied">
-									<Link to='applied' >Applied</Link>
-								</NavDropdown.Item>
-							</NavDropdown>
 						</Nav>
-						<Form className="d-flex">
-							<Form.Control
-								type="search"
-								placeholder="Search"
-								className="me-2"
-								aria-label="Search"
-							/>
-							<Button variant="outline-success">Search</Button>
-						</Form>
 					</Offcanvas.Body>
 				</Navbar.Offcanvas>
 		</Navbar>
