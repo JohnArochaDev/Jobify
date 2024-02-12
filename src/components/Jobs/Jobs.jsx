@@ -56,6 +56,7 @@ export default function Jobs({user, query, setQuery, location, setLocation, dist
       try {
       const response = await axios.request(options);// this is the API call
         setJobs(response.data.jobs) 
+        setSelectedJob(response.data.jobs[0])
       } catch (error) {
       console.error(error);
       }
