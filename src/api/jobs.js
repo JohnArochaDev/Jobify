@@ -33,6 +33,7 @@ export const updateJob = (user, updatedJob) => {
 }
 
 export const removeJob = (user, id) => {
+  
   return axios({
       url: `${apiUrl}/applied/${id}`,
       method: 'DELETE',

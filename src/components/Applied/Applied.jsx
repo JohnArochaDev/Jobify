@@ -5,9 +5,7 @@ import { useState, useEffect } from "react"
 import './Applied.css'
 import Stack from 'react-bootstrap/Stack';
 import Dropdown from 'react-bootstrap/Dropdown';
-
-import { updateJob } from "../../api/jobs";
-
+import { removeJob, updateJob } from "../../api/jobs";
 const axios = require('axios');
 
 
@@ -16,6 +14,7 @@ export default function Applied({ user }) {
   let data = '';
 
   const [allJobs, setAllJobs] = useState(null)
+  const [reload, setReload] = useState(true)
 
   let configAll = {
     method: 'get',
@@ -27,8 +26,8 @@ export default function Applied({ user }) {
     data : data
   };
 
-  function updateStatus(interviewJob) {
-    interviewJob.status = 'interview'
+  function updateStatus(interviewJob, status) {
+    interviewJob.status = status
     updateJob(user, interviewJob)
     .then((response) => {
       console.log('JOB UPDATED', response)
@@ -48,7 +47,7 @@ export default function Applied({ user }) {
       console.log(error);
     });
 
-  }, [])
+  })
 
   // ALL THE SAME HEAD MODEL WITH DIFFERENT STATUS, MAKE SURE TO REFER TOTHE RIGHT PLACE AT THE RIGHT TIME
 
@@ -81,9 +80,10 @@ export default function Applied({ user }) {
                     ...
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#" onClick={() => (updateStatus(job))} >Move to Interview</Dropdown.Item>
-                    <Dropdown.Item href="#">Delete Application</Dropdown.Item>
-                    <Dropdown.Item href="#">Move to Rejection</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'interview'); setReload(!reload)}} >Move to Interview</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'saved'); setReload(!reload)}} >Move to Saved</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'rejected'); setReload(!reload)}} >Move to Rejection</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {removeJob(user, job._id); setReload(!reload)}} >Delete Application</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
                 </div>
