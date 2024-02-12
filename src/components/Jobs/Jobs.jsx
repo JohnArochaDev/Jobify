@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import MyVerticallyCenteredModal from './Modal/FilterModal'
 import './Jobs.css'
+import FilterModal from "./Modal/FilterModal";
 
 require('dotenv').config()
 
@@ -89,7 +90,7 @@ export default function Jobs({user, query, setQuery, location, setLocation, dist
               </Button>
             </div>
           </Col>
-          <MyVerticallyCenteredModal
+          <FilterModal
             show={modalShow}
             onHide={() => setModalShow(false)}
             query={query}
