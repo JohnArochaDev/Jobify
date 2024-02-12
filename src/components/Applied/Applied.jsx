@@ -18,48 +18,15 @@ export default function Applied({ user }) {
   const [interviewJobs, setInterviewJobs] = useState(null)
   const [rejectedJobs, setRejectedJobs] = useState(null)
 
-  const [reload, setReload] = useState(true)
+  const [reload, setReload] = useState(false)
 
-  let configSaved = {
-    method: 'get',
-    maxBodyLength: Infinity,
-    url: 'http://localhost:8000/applied/saved',
-    headers: { 
-      'Authorization': `Token token=${user.token}`
-    },
-    data : data
-  };
 
-  let configApplied = {
-    method: 'get',
-    maxBodyLength: Infinity,
-    url: 'http://localhost:8000/applied/applied',
-    headers: { 
-      'Authorization': `Token token=${user.token}`
-    },
-    data : data
-  };
-
-  let configInterview = {
-    method: 'get',
-    maxBodyLength: Infinity,
-    url: 'http://localhost:8000/applied/interview',
-    headers: { 
-      'Authorization': `Token token=${user.token}`
-    },
-    data : data
-  };
-
-  let configRejected = {
-    method: 'get',
-    maxBodyLength: Infinity,
-    url: 'http://localhost:8000/applied/rejected',
-    headers: { 
-      'Authorization': `Token token=${user.token}`
-    },
-    data : data
-  };
-
+function doubleReload() {
+  setReload(prevReload => !prevReload)
+  setTimeout(() => {
+    setReload(prevReload => !prevReload)
+  }, 2000);
+}
 
   function updateStatus(interviewJob, status) {
     interviewJob.status = status
@@ -73,49 +40,71 @@ export default function Applied({ user }) {
   }
 
   useEffect(() => {
-
-    function getAllApiData() {
-
-      axios.request(configSaved)// this is for the saved jobs
-      .then((response) => {
-        setSavedJobs(response.data.jobs)
-        console.log('DB DATA', response.data)
-      })
-      .catch((error) => {
+    const fetchData = async () => {
+      try {
+        let configSaved = {
+          method: 'get',
+          maxBodyLength: Infinity,
+          url: 'http://localhost:8000/applied/saved',
+          headers: { 
+            'Authorization': `Token token=${user.token}`
+          },
+          data: data
+        };
+  
+        let configApplied = {
+          method: 'get',
+          maxBodyLength: Infinity,
+          url: 'http://localhost:8000/applied/applied',
+          headers: { 
+            'Authorization': `Token token=${user.token}`
+          },
+          data: data
+        };
+  
+        let configInterview = {
+          method: 'get',
+          maxBodyLength: Infinity,
+          url: 'http://localhost:8000/applied/interview',
+          headers: { 
+            'Authorization': `Token token=${user.token}`
+          },
+          data: data
+        };
+  
+        let configRejected = {
+          method: 'get',
+          maxBodyLength: Infinity,
+          url: 'http://localhost:8000/applied/rejected',
+          headers: { 
+            'Authorization': `Token token=${user.token}`
+          },
+          data: data
+        };
+  
+        const savedResponse = await axios.request(configSaved);
+        setSavedJobs(savedResponse.data.jobs);
+        console.log('Saved Jobs:', savedResponse.data);
+  
+        const appliedResponse = await axios.request(configApplied);
+        setAppliedJobs(appliedResponse.data.jobs);
+        console.log('Applied Jobs:', appliedResponse.data);
+  
+        const interviewResponse = await axios.request(configInterview);
+        setInterviewJobs(interviewResponse.data.jobs);
+        console.log('Interview Jobs:', interviewResponse.data);
+  
+        const rejectedResponse = await axios.request(configRejected);
+        setRejectedJobs(rejectedResponse.data.jobs);
+        console.log('Rejected Jobs:', rejectedResponse.data);
+        
+      } catch (error) {
         console.log(error);
-      });
-
-      axios.request(configApplied)// this is for the applied jobs
-      .then((response) => {
-        setAppliedJobs(response.data.jobs)
-        console.log('DB DATA', response.data)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-      axios.request(configInterview)// this is for the interview jobs
-      .then((response) => {
-        setInterviewJobs(response.data.jobs)
-        console.log('DB DATA', response.data)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-      axios.request(configRejected)// this is for the rejected applications
-      .then((response) => {
-        setRejectedJobs(response.data.jobs)
-        console.log('DB DATA', response.data)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    }
-
-    getAllApiData()
-
-  })
+      }
+    };
+  
+    fetchData();
+  }, [reload]);
 
   // ALL THE SAME HEAD MODEL WITH DIFFERENT STATUS, MAKE SURE TO REFER TOTHE RIGHT PLACE AT THE RIGHT TIME
 
@@ -142,10 +131,10 @@ export default function Applied({ user }) {
                     ...
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'interview'); setReload(!reload)}} >Move to Interview</Dropdown.Item>
-                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'saved'); setReload(!reload)}} >Move to Saved</Dropdown.Item>
-                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'rejected'); setReload(!reload)}} >Move to Rejection</Dropdown.Item>
-                    <Dropdown.Item href="#" onClick={() => {removeJob(user, job._id); setReload(!reload)}} >Delete Application</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'interview'); doubleReload()}} >Move to Interview</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'applied'); doubleReload()}} >Move to Saved</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'rejected'); doubleReload()}} >Move to Rejection</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {removeJob(user, job._id); doubleReload()}} >Delete Application</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
                 </div>
@@ -160,7 +149,7 @@ export default function Applied({ user }) {
 
 
         <Tab eventKey="applied" title="Applied">
-          <h2 style={{ textAlign: 'center', textDecoration: 'underline' }}>Interviews</h2>
+          <h2 style={{ textAlign: 'center', textDecoration: 'underline' }}>Applied</h2>
           <br />
           <Stack  style={{display: 'flex'}} gap={3}>
             {appliedJobs ? (appliedJobs.map((job) => (
@@ -172,10 +161,10 @@ export default function Applied({ user }) {
                     ...
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'interview'); setReload(!reload)}} >Move to Interview</Dropdown.Item>
-                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'saved'); setReload(!reload)}} >Move to Saved</Dropdown.Item>
-                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'rejected'); setReload(!reload)}} >Move to Rejection</Dropdown.Item>
-                    <Dropdown.Item href="#" onClick={() => {removeJob(user, job._id); setReload(!reload)}} >Delete Application</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'interview'); doubleReload()}} >Move to Interview</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'saved'); doubleReload()}} >Move to Saved</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'rejected'); doubleReload()}} >Move to Rejection</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {removeJob(user, job._id); doubleReload()}} >Delete Application</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
                 </div>
@@ -202,10 +191,10 @@ export default function Applied({ user }) {
                     ...
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'interview'); setReload(!reload)}} >Move to Interview</Dropdown.Item>
-                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'saved'); setReload(!reload)}} >Move to Saved</Dropdown.Item>
-                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'rejected'); setReload(!reload)}} >Move to Rejection</Dropdown.Item>
-                    <Dropdown.Item href="#" onClick={() => {removeJob(user, job._id); setReload(!reload)}} >Delete Application</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'applied'); doubleReload()}} >Move to Interview</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'saved'); doubleReload()}} >Move to Saved</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'rejected'); doubleReload()}} >Move to Rejection</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {removeJob(user, job._id); doubleReload()}} >Delete Application</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
                 </div>
@@ -219,7 +208,7 @@ export default function Applied({ user }) {
         </Tab>
 
 
-        <Tab eventKey="rejected" title="rejected">
+        <Tab eventKey="rejected" title="Rejected">
           <h2 style={{ textAlign: 'center', textDecoration: 'underline' }}>Rejections</h2>
           <br />
           <Stack  style={{display: 'flex'}} gap={3}>
@@ -232,10 +221,10 @@ export default function Applied({ user }) {
                     ...
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'interview'); setReload(!reload)}} >Move to Interview</Dropdown.Item>
-                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'saved'); setReload(!reload)}} >Move to Saved</Dropdown.Item>
-                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'rejected'); setReload(!reload)}} >Move to Rejection</Dropdown.Item>
-                    <Dropdown.Item href="#" onClick={() => {removeJob(user, job._id); setReload(!reload)}} >Delete Application</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'applied'); doubleReload()}} >Move to Interview</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'interview'); doubleReload()}} >Move to Interview</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'saved'); doubleReload()}} >Move to Saved</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {removeJob(user, job._id); doubleReload()}} >Delete Application</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
                 </div>
