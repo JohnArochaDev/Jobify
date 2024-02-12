@@ -74,6 +74,8 @@ export default function Applied({ user }) {
 
   useEffect(() => {
 
+
+
     axios.request(configSaved)// this is for the saved jobs
     .then((response) => {
       setAppliedJobs(response.data.jobs)
@@ -125,8 +127,32 @@ export default function Applied({ user }) {
 
 
         <Tab eventKey="saved" title="Saved">
-          <h2 style={{ textAlign: 'center', textDecoration: 'underline' }} >Saved Jobs</h2>
+          <h2 style={{ textAlign: 'center', textDecoration: 'underline' }}>Saved</h2>
           <br />
+          <Stack  style={{display: 'flex'}} gap={3}>
+            {savedJobs ? (savedJobs.map((job) => (
+              <div className="p-2 apJobs" style={{ borderBottom: '1px solid grey' }}>
+                <img src={job.img} alt="" className="imgIcon" /> {job.company}  
+                <div style={{ textAlign: 'right' }}>
+                <Dropdown className="d-inline mx-2" >
+                  <Dropdown.Toggle id="dropdown-autoclose-true" style={{backgroundColor: 'black', color: 'white', border: 'none'}} >
+                    ...
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'interview'); setReload(!reload)}} >Move to Interview</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'saved'); setReload(!reload)}} >Move to Saved</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'rejected'); setReload(!reload)}} >Move to Rejection</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {removeJob(user, job._id); setReload(!reload)}} >Delete Application</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+                </div>
+                {job.title}
+                <br />
+                <br />
+                <p className='smallTextCard' >{job.details}</p>
+              </div>))
+            ) : (<p>Henlo</p>)}
+          </Stack>
         </Tab>
 
 
@@ -160,18 +186,65 @@ export default function Applied({ user }) {
         </Tab>
 
 
-        <Tab eventKey="interview" title="Interview">
-          <h2 style={{ textAlign: 'center', textDecoration: 'underline' }} >Saved Jobs</h2>
+        <Tab eventKey="interview" title="Interviews">
+          <h2 style={{ textAlign: 'center', textDecoration: 'underline' }}>Interviews</h2>
           <br />
+          <Stack  style={{display: 'flex'}} gap={3}>
+            {interviewJobs ? (interviewJobs.map((job) => (
+              <div className="p-2 apJobs" style={{ borderBottom: '1px solid grey' }}>
+                <img src={job.img} alt="" className="imgIcon" /> {job.company}  
+                <div style={{ textAlign: 'right' }}>
+                <Dropdown className="d-inline mx-2" >
+                  <Dropdown.Toggle id="dropdown-autoclose-true" style={{backgroundColor: 'black', color: 'white', border: 'none'}} >
+                    ...
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'interview'); setReload(!reload)}} >Move to Interview</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'saved'); setReload(!reload)}} >Move to Saved</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'rejected'); setReload(!reload)}} >Move to Rejection</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {removeJob(user, job._id); setReload(!reload)}} >Delete Application</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+                </div>
+                {job.title}
+                <br />
+                <br />
+                <p className='smallTextCard' >{job.details}</p>
+              </div>))
+            ) : (<p>Henlo</p>)}
+          </Stack>
         </Tab>
 
 
-        <Tab eventKey="rejected" title="Rejected" >
-          <h2 style={{textAlign: 'center', textDecoration: 'underline'}} >Rejections</h2>
+        <Tab eventKey="rejected" title="rejected">
+          <h2 style={{ textAlign: 'center', textDecoration: 'underline' }}>Rejections</h2>
+          <br />
+          <Stack  style={{display: 'flex'}} gap={3}>
+            {rejectedJobs ? (rejectedJobs.map((job) => (
+              <div className="p-2 apJobs" style={{ borderBottom: '1px solid grey' }}>
+                <img src={job.img} alt="" className="imgIcon" /> {job.company}  
+                <div style={{ textAlign: 'right' }}>
+                <Dropdown className="d-inline mx-2" >
+                  <Dropdown.Toggle id="dropdown-autoclose-true" style={{backgroundColor: 'black', color: 'white', border: 'none'}} >
+                    ...
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'interview'); setReload(!reload)}} >Move to Interview</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'saved'); setReload(!reload)}} >Move to Saved</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {updateStatus(job, 'rejected'); setReload(!reload)}} >Move to Rejection</Dropdown.Item>
+                    <Dropdown.Item href="#" onClick={() => {removeJob(user, job._id); setReload(!reload)}} >Delete Application</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+                </div>
+                {job.title}
+                <br />
+                <br />
+                <p className='smallTextCard' >{job.details}</p>
+              </div>))
+            ) : (<p>Henlo</p>)}
+          </Stack>
         </Tab>
       </Tabs>
-
-
     </Container>
   )
 }
