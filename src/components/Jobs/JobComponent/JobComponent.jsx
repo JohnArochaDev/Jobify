@@ -69,8 +69,8 @@ export default function JobComponent({setSelectedJob, job, i, user}) {
         >
           <Card.Body style={{display: 'flex', flexDirection: 'column' }} >
           <Card.Title onClick={(e) => e.preventDefault()} className="d-flex justify-content-between align-items-center">
-            {job.title}
-            <img onClick={saveOrNot} key={i} className='bookmarkImg' src={saved ? 'photos/bookmark.png' : 'photos/bookmark-white.png'} alt="" />
+            {job.title} {user ? (<img onClick={saveOrNot} key={i} className='bookmarkImg' src={saved ? 'photos/bookmark.png' : 'photos/bookmark-white.png'} alt="" />) : (<></>)}
+            
           </Card.Title>
             <Card.Subtitle className="mb-2 text-muted">{job.company}</Card.Subtitle>
             <Card.Text style={{marginTop: 'auto'}} >
