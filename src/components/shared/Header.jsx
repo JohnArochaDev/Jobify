@@ -3,26 +3,33 @@ import Offcanvas from 'react-bootstrap/Offcanvas'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import './Header.css'
+
+
+
+export default function Header({ user }) {
+
+	const [show, setShow] = useState(false);
 
 const authenticatedOptions = (
 	<>
-		<Nav.Item style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
-			<Link to='jobs' style={{color: 'black', textDecoration: 'none'}} >
+		<Nav.Item onClick={()  => setShow(!show)}  style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
+			<Link to='jobs' style={{color: 'black', textDecoration: 'none'}}  >
 				Jobs
 			</Link>
 		</Nav.Item>
-		<Nav.Item style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
+		<Nav.Item onClick={()  => setShow(!show)} style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
 			<Link to='applied' style={{color: 'black', textDecoration: 'none'}} >
 				My Jobs
 			</Link>
 		</Nav.Item>
-		<Nav.Item style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
+		<Nav.Item onClick={()  => setShow(!show)} style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
 			<Link to='change-password' style={{color: 'black', textDecoration: 'none'}} >
 				Change Password
 			</Link>
 		</Nav.Item>
-		<Nav.Item style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
+		<Nav.Item onClick={()  => setShow(!show)} style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
 			<Link to='sign-out' style={{color: 'black', textDecoration: 'none'}} >
 				Sign Out
 			</Link>
@@ -33,39 +40,40 @@ const authenticatedOptions = (
 
 const unauthenticatedOptions = (
 	<>
-	      <Nav.Item style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
-		    	<Link to='jobs' style={{color: 'black', textDecoration: 'none' }} >Jobs</Link>
-        </Nav.Item>
-				<Nav.Item style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
-		    	<Link to='sign-in' style={{color: 'black', textDecoration: 'none'}} >Sign In</Link>
-        </Nav.Item>
-        <Nav.Item style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
-		    	<Link to='sign-up' style={{color: 'black', textDecoration: 'none'}} >Sign Up</Link>
-        </Nav.Item>
-
+		<Nav.Item onClick={()  => setShow(!show)} style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
+			<Link to='jobs' style={{color: 'black', textDecoration: 'none' }} >Jobs</Link>
+		</Nav.Item>
+		<Nav.Item onClick={()  => setShow(!show)} style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
+			<Link to='sign-in' style={{color: 'black', textDecoration: 'none'}} >Sign In</Link>
+		</Nav.Item>
+		<Nav.Item onClick={()  => setShow(!show)} style={{marginBottom: '2vh', paddingBottom: '1vh', borderBottom: '1px solid grey'}}>
+			<Link to='sign-up' style={{color: 'black', textDecoration: 'none'}} >Sign Up</Link>
+		</Nav.Item>
 	</>
 )
 
-const Header = ({ user }) => (
-	<Navbar expand={false} className='navBarColor'>
-	<Navbar.Brand href="/" className='d-flex align-items-center mx-auto' style={{ color: 'white', fontSize: '3vh', fontFamily: 'Paytone One' }}>Handshake</Navbar.Brand>
-	<Navbar.Toggle aria-controls='basic-navbar-nav' />
-	<Navbar.Offcanvas
-		id='basic-navbar-nav'
-		placement="end"
-	>
-		<Offcanvas.Header closeButton>
-			<Offcanvas.Title>
-				<h2>Settings</h2>
-			</Offcanvas.Title>
-		</Offcanvas.Header>
-		<Offcanvas.Body>
-			<Nav className="justify-content-end flex-grow-1 pe-3">
-				{user ? authenticatedOptions : unauthenticatedOptions}
-			</Nav>
-		</Offcanvas.Body>
-	</Navbar.Offcanvas>
-</Navbar>
-)
+return (
 
-export default Header
+	<Navbar expand={false} className='navBarColor'>
+		<Navbar.Brand href="/" className='d-flex align-items-center mx-auto' style={{ color: 'white', fontSize: '3vh', fontFamily: 'Paytone One' }}>Handshake</Navbar.Brand>
+		<Navbar.Toggle onClick={()  => setShow(!show)} aria-controls='basic-navbar-nav' />
+		<Navbar.Offcanvas
+			backdrop={show}
+			show={show}
+			id='basic-navbar-nav'
+			placement="end"
+		>
+			<Offcanvas.Header closeButton>
+				<Offcanvas.Title>
+					<h2>Settings</h2>
+				</Offcanvas.Title>
+			</Offcanvas.Header>
+			<Offcanvas.Body>
+				<Nav className="justify-content-end flex-grow-1 pe-3">
+					{user ? authenticatedOptions : unauthenticatedOptions}
+				</Nav>
+			</Offcanvas.Body>
+		</Navbar.Offcanvas>
+	</Navbar>
+	)
+}
