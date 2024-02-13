@@ -58,12 +58,13 @@ return (
 		<Navbar.Brand href="/" className='d-flex align-items-center mx-auto' style={{ color: 'white', fontSize: '3vh', fontFamily: 'Paytone One' }}>Handshake</Navbar.Brand>
 		<Navbar.Toggle onClick={()  => setShow(!show)} aria-controls='basic-navbar-nav' />
 		<Navbar.Offcanvas
-			backdrop={show}
+			backdrop={false}
 			show={show}
 			id='basic-navbar-nav'
 			placement="end"
+			enforceFocus={false}
 		>
-			<Offcanvas.Header closeButton>
+			<Offcanvas.Header closeButton onClick={()  => setShow(!show)}>
 				<Offcanvas.Title>
 					<h2>Settings</h2>
 				</Offcanvas.Title>
