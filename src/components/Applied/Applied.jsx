@@ -148,7 +148,7 @@ function doubleReload() {
         </Tab>
 
 
-        <Tab eventKey="applied" title="Applied" active>
+        <Tab eventKey="applied" title="Applied" >
           <h2 style={{ textAlign: 'center', textDecoration: 'underline' }}>Applied</h2>
           <br />
           <Stack  style={{display: 'flex'}} gap={3}>
