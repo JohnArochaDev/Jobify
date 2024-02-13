@@ -40,3 +40,8 @@
   ::-webkit-scrollbar-thumb:hover {
   background: black;  
   }
+
+  .bookmarkImg {
+    width: 20px;
+    height: 20px;
+  }
