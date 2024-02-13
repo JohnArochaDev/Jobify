@@ -8,7 +8,7 @@ import uuid from 'react-uuid';
 import './JobList.css';
 
 
-export default function JobList({ jobs, reload, setReload, setSelectedJob, index, setIndex}) {
+export default function JobList({ jobs, reload, setReload, setSelectedJob, index, setIndex, user}) {
 
 
 
@@ -28,10 +28,12 @@ export default function JobList({ jobs, reload, setReload, setSelectedJob, index
         job={job}
         i={i}
         setSelectedJob={setSelectedJob}
+        user={user}
         />
       ))) : (
         <JobComponentLoad
           loadAmount={loadAmount}
+          user={user}
         />
       )}
         <ButtonToolbar style={{display: 'flex'}} aria-label="Toolbar with button groups">

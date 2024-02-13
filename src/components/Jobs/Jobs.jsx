@@ -122,6 +122,7 @@ export default function Jobs({user, query, setQuery, location, setLocation, dist
                 jobs={jobs}
                 reload={reload}
                 setReload={setReload}
+                user={user}
               />
             </Col>
             <Col xs={12} md={8}>
