@@ -1,5 +1,5 @@
 // import React, { Component, Fragment } from 'react'
-import React, { useState, Fragment } from 'react'
+import React, { useState, Fragment, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
@@ -36,11 +36,12 @@ const App = () => {
 
   console.log('user in app', user)
   console.log('message alerts', msgAlerts)
-	
-  const clearUser = () => {
+
+	const clearUser = () => {
     console.log('clear user ran')
+    localStorage.removeItem('user')
     setUser(null)
-  }
+}
 
 	const deleteAlert = (id) => {
 		setMsgAlerts((prevState) => {
@@ -56,6 +57,15 @@ const App = () => {
       )
 		})
 	}
+
+	useEffect(() => {
+    const loggedInUser = localStorage.getItem('user')
+
+    if (loggedInUser) {
+        const foundUser = JSON.parse(loggedInUser)
+        setUser(foundUser)
+    }
+}, [])
 
 		return (
 			<Fragment>
