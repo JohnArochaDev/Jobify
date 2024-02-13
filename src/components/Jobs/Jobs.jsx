@@ -44,7 +44,7 @@ export default function Jobs({user, query, setQuery, location, setLocation, dist
         language: language,
         remoteOnly: remoteOnly,
         datePosted: datePosted,
-        emplyomentTypes: employmentTypes,
+        employmentTypes: employmentTypes,
         index: index
       },
       headers: {
