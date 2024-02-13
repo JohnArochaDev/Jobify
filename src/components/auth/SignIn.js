@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 
-const SignIn = (props) => {
+export default function SignIn(props) {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -31,15 +31,6 @@ const SignIn = (props) => {
 
 		signIn(credentials)
 			.then((res) => setUser(res.data.user))
-			.then(() => {
-				msgAlert({
-					heading: 'Sign In Success',
-					message: messages.signInSuccess,
-					variant: 'success',
-				})
-                console.log('this is user as It leaves the sign-in page', user)
-            }
-			)
 			.then(() => navigate('/'))
 			.catch((error) => {
                 setEmail('')
@@ -87,5 +78,3 @@ const SignIn = (props) => {
         </div>
     )
 }
-
-export default SignIn

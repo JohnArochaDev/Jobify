@@ -6,16 +6,12 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { createJob } from '../../../api/jobs';
-import { Form } from 'react-bootstrap';
 
 
 export default function JobDesc({ uJob, user }) {
-
-  console.log('user', user)
-
+  
   // state for opening modal
   const [show, setShow] = useState(false);
-
   let value = 0
 
   const [randomNumbers, setRandomNumbers] = useState([
@@ -31,38 +27,29 @@ export default function JobDesc({ uJob, user }) {
   ])
 
   const handleClose = () => setShow(false);
-
   const handleShow = () => setShow(true);
  
   async function onSubmit(e) {
     e.preventDefault()
     console.log('Form submitted!');
-    let img = document.getElementById('img').value
-    let title = document.getElementById('title').value
-    let company = document.getElementById('company').value
-    let status = document.getElementById('status').value
-    let details = document.getElementById('details').value
-
 
     let userJob = {
-        img: img,
-        title: title,
-        company: company,
-        status: status,
-        details: details,
+        img: uJob.image,
+        title: uJob.title,
+        company: uJob.company,
+        status: 'applied',
+        details: `${uJob.location} - ${uJob.employmentType} - ${uJob.datePosted}`,
     }
-    console.log('userJob', userJob)
 
     await createJob(user, userJob)
         .then( res => {
-          console.log('FORM WAS SAVED',res)
+          console.log('Form was saved',res)
         handleClose()
       })
         .catch(err => {
             console.error(err)
         })
   }
-
 
   return (
     <>
@@ -84,67 +71,20 @@ export default function JobDesc({ uJob, user }) {
                   value++
                   return <ListGroup.Item action href={provider.url} target="_blank" id={randomNumbers[value]} key={uuid()} onClick={handleShow} >{provider.jobProvider}  </ListGroup.Item>
                 })}
-
                 <Modal key={uuid()} show={show} onHide={handleClose}>
                   <Modal.Header closeButton>
                     <Modal.Title>Did you Apply with {uJob.company}? </Modal.Title>
                   </Modal.Header>
                   <Modal.Footer className="d-flex justify-content-around">
                     {/* Make a form here that the button will input to the DB */}
-
-
-                    <Form onSubmit={onSubmit}>
-                      <Form.Group >
-                        <Form.Control hidden
-                            id="img"
-                            name="img"
-                            defaultValue={uJob.image}
-                            key={uuid()}
-                        />
-                      </Form.Group>
-                      <Form.Group >
-                      <Form.Control hidden 
-                          id="title"
-                          name="title"
-                          defaultValue={uJob.title}
-                          key={uuid()}
-                      />
-                      </Form.Group>
-                      <Form.Group >
-                      <Form.Control hidden
-                          id="company"
-                          name="company"
-                          defaultValue={uJob.company}
-                          key={uuid()}
-                      />
-                      </Form.Group>
-                      <Form.Group >
-                      <Form.Control hidden
-                          id="status"
-                          name="status"
-                          defaultValue={'applied'}
-                          key={uuid()}
-                      />
-                      </Form.Group>
-                      <Form.Group >
-                      <Form.Control hidden
-                          id="details"
-                          name="details"
-                          defaultValue={uJob.location+' - '+uJob.employmentType+' - '+uJob.datePosted}
-                          key={uuid()}
-                      />
-                      </Form.Group>
-                      
-                      <Button style={{width: '7vw', backgroundColor: 'green', borderColor: 'green'}} type="submit">Yes</Button>
-                    </Form>
-
-                    <Button onClick={handleClose} style={{width: '7vw', backgroundColor: 'red', borderColor: 'red'}} >
+                    <Button style={{width: '7vw', backgroundColor: 'green', borderColor: 'green'}} type="button" onClick={onSubmit}>
+                      Yes
+                    </Button>
+                    <Button style={{width: '7vw', backgroundColor: 'red', borderColor: 'red'}} >
                       No
                     </Button>
-
                   </Modal.Footer>
                 </Modal>
-
               </ListGroup>
             </Card.Text>
           </Card.Body>

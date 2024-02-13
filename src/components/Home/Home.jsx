@@ -6,7 +6,7 @@ import Footer from '../shared/Footer';
 
 import './Home.css'
 
-export default function Home({ msgAlert, user, query, setQuery, location, setLocation } ) {
+export default function Home({setQuery, setLocation } ) {
 
   const button = {
     width: '20vh',
