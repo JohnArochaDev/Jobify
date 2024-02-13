@@ -42,8 +42,8 @@ export default function Home({ msgAlert, user, query, setQuery, location, setLoc
 
 	return (
 <>
-  <Container className="bgColor" fluid>
-    <Row className='emptyBar' style={{ height: 'auto', minHeight: '100vh', display: 'flex', justifyContent: 'center' }}>
+  <Container className="bgColor" fluid >
+    <Row className='emptyBar' style={{ height: 'auto', minHeight: 'auto', display: 'flex', justifyContent: 'center' }}>
       <Col xs={12} md={6}>
         <h2 style={{ fontSize: '4vh', color: '#2AABB6', fontFamily: 'Paytone One', paddingTop: '15vh' }}>Let's <span style={{ color: '#2AB635' }}>introduce</span> you to your future</h2>
         <Form>
