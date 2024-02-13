@@ -32,7 +32,7 @@ export default function FilterModal(props) {
       jobTypes += 'parttime;'
     }
     if (document.getElementById('contract').checked) {
-      jobTypes += 'contract;'
+      jobTypes += 'contractor;'
     }
     if (document.getElementById('intern').checked) {
       jobTypes += 'intern;'
