@@ -27,8 +27,13 @@ export default function JobDesc({ uJob, user }) {
   ])
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
- 
+  // const handleShow = () => setShow(true);
+
+  function handleShow() {
+    if (user) {
+      setShow(true);
+    }
+}
   async function onSubmit(e) {
     e.preventDefault()
     console.log('Form submitted!');
