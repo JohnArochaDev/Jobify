@@ -4,13 +4,16 @@ import { useState } from 'react';
 
 export default function JobComponent({setSelectedJob, job, i, user}) {
 
+  const [dBId, setDBId] = useState('')
+
   function saveOrNot(e) {
     if (saved) {
       // the below ID is not the .-id and thats why its not working
-      removeSaved(user, job.id)
+      removeSaved(user, dBId)
     } else if (!saved) {
       handleSave(e)
     }
+    setSaved(!saved)
   }
 
   function removeSaved(user, id) {
@@ -30,7 +33,6 @@ export default function JobComponent({setSelectedJob, job, i, user}) {
     console.log('Form submitted!');
     console.log('This is the user: ', user)
     console.log('This is the job at onClick: ', job)
-    setSaved(!saved)
 
     let userJob = {
         img: job.image,
@@ -44,6 +46,7 @@ export default function JobComponent({setSelectedJob, job, i, user}) {
     await createJob(user, userJob)
         .then( res => {
           console.log('Form was saved',res)
+          setDBId(res.data.job._id)
       })
         .catch(err => {
             console.error(err)
