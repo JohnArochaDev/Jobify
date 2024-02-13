@@ -68,66 +68,66 @@ export default function Jobs({user, query, setQuery, location, setLocation, dist
   },[query, location, remoteOnly, employmentTypes, distance, datePosted, index])
 
   return (
-    <>
+ <>
       <Container className="bgColor" fluid>
-      <Row className='emptyBar'>
-        <div className="filterButton" style={{ display: "flex", justifyContent: 'space-around' }}>
-          <Col style={{ display: 'flex', alignItems: 'center', marginLeft: '5vh' }} >
-            <h3>Searching for <span style={{ color: '#11A7BB'}} >{query}</span> Jobs</h3>
-          </Col>
-          <Col style={{ display: 'flex', alignItems: 'center' }}>
-            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-              <Form>
-                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                  <Form.Control style={{ marginRight: '1vh', marginLeft: '17vh', width: '30vh' }} type="text" placeholder="Search Jobs" id="jobSearch" onChange={e => setUserJob(e.target.value)} />
-                  <Form.Control style={{ marginRight: '1vh', width: '30vh' }} type="text" placeholder="Location" id="locationSearch" onChange={e => setUserLocation(e.target.value)} />
-                  <Button type="submit" style={{ marginRight: '1vh', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} onClick={handleSubmit} >Submit</Button>
-                </div>
-              </Form>
+        <Row className='emptyBar'>
+          <div className="filterButton" style={{ display: "flex", justifyContent: 'space-around' }}>
+            <Col xs={12} md={6} style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
+              <h3>Searching for <span style={{ color: '#11A7BB' }}>{query}</span> Jobs</h3>
+            </Col>
+            <Col xs={12} md={6} style={{ display: 'flex', alignItems: 'center' }}>
+              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                <Form>
+                  <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                    <Form.Control xs={12} md={4} style={{ marginRight: '1vh', marginBottom: '1rem', width: '30vh' }} type="text" placeholder="Search Jobs" id="jobSearch" onChange={e => setUserJob(e.target.value)} />
+                    <Form.Control xs={12} md={4} style={{ marginRight: '1vh', marginBottom: '1rem', width: '30vh' }} type="text" placeholder="Location" id="locationSearch" onChange={e => setUserLocation(e.target.value)} />
+                    <Button type="submit" style={{ marginRight: '1vh', marginBottom: '1rem', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black' }} onClick={handleSubmit}>Submit</Button>
+                  </div>
+                </Form>
 
-              <Button onClick={() => setModalShow(true)} style={{backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black'}} >
-                Filter
-              </Button>
-            </div>
-          </Col>
-          <FilterModal
-            show={modalShow}
-            onHide={() => setModalShow(false)}
-            query={query}
-						setQuery={setQuery}	
-						location={location}
-						setLocation={setLocation}
-						distance={distance}
-						setDistance={setDistance}
-						language={language}
-						setLanguage={setLanguage}
-						remoteOnly={remoteOnly}
-						setRemoteOnly={setRemoteOnly}
-						datePosted={datePosted}
-						setDatePosted={setDatePosted}
-						employmentTypes={employmentTypes}
-						setEmploymentTypes={setEmploymentTypes}
-						index={index}
-						setIndex={setIndex}
-          />
-        </div>
-      </Row>
-        <Container className="jobTitle">
-          <Row >
-            <Col> 
-            <JobList 
+                <Button onClick={() => setModalShow(true)} style={{ backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black', marginBottom: '1rem' }}>
+                  Filter
+                </Button>
+              </div>
+            </Col>
+            <FilterModal
+              show={modalShow}
+              onHide={() => setModalShow(false)}
+              query={query}
+              setQuery={setQuery}
+              location={location}
+              setLocation={setLocation}
+              distance={distance}
+              setDistance={setDistance}
+              language={language}
+              setLanguage={setLanguage}
+              remoteOnly={remoteOnly}
+              setRemoteOnly={setRemoteOnly}
+              datePosted={datePosted}
+              setDatePosted={setDatePosted}
+              employmentTypes={employmentTypes}
+              setEmploymentTypes={setEmploymentTypes}
               index={index}
               setIndex={setIndex}
-              setSelectedJob={setSelectedJob}
-              jobs={jobs} 
-              reload={reload}
-              setReload={setReload}
             />
+          </div>
+        </Row>
+        <Container className="jobTitle">
+          <Row>
+            <Col xs={12} md={4}>
+              <JobList
+                index={index}
+                setIndex={setIndex}
+                setSelectedJob={setSelectedJob}
+                jobs={jobs}
+                reload={reload}
+                setReload={setReload}
+              />
             </Col>
-            <Col xs={8}>
-              <JobDesc 
-                user={user} 
-                uJob={selectedJob} 
+            <Col xs={12} md={8}>
+              <JobDesc
+                user={user}
+                uJob={selectedJob}
               />
             </Col>
           </Row>
