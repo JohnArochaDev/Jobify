@@ -19,8 +19,9 @@ export default function JobList({ jobs, reload, setReload, setSelectedJob, index
   return(
     <>
       <div className='scrollBox' >
-        {jobs ? (jobs.map((job) =>(
+        {jobs ? (jobs.map((job,i) =>(
         <Card 
+        key={i}
         style={{height:  '15vh' }} 
         className='jobCard'
         onClick={() => {
@@ -35,8 +36,8 @@ export default function JobList({ jobs, reload, setReload, setSelectedJob, index
               <p className='smallTextCard'>{job.location} - {job.employmentType} - {job.datePosted}</p>
             </Card.Text>
           </Card.Body>
-        </Card>))) : (loadAmount.map((load) =>(
-        <Card style={{display: 'flex', flexDirection: 'column' }}>
+        </Card>))) : (loadAmount.map((load, iii) =>(
+        <Card style={{display: 'flex', flexDirection: 'column' }} key={iii}>
           <Card.Img className='loadingImg' src="/photos/SFLS.jpg" alt="Card image" />
           <Card.ImgOverlay>
             <Card.Title></Card.Title>
