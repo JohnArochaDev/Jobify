@@ -16,8 +16,8 @@ export const getOneJob = (id) => {
 
 export const createJob = (user, newJob) => {
   return axios({
-      // url: `${apiUrl}/applied`,
-      url: 'http://localhost:8000/applied',
+      url: `${apiUrl}/applied`,
+      // url: 'http://localhost:8000/applied',
       method: 'POST',
       headers: {
           Authorization: `Token token=${user.token}`
