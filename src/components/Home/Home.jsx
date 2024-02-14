@@ -48,9 +48,9 @@ export default function Home({setQuery, setLocation } ) {
       <h2 style={{ fontSize: '4vh', color: '#2AABB6', fontFamily: 'Paytone One', paddingTop: '15vh' }}>Let's <span style={{ color: '#2AB635', textDecoration: 'underline' }}>introduce</span> you to your future</h2>
       <Form>
         <InputGroup style={{ paddingTop: '5vh', paddingBottom: '5vh' }}>
-          <Form.Control style={{ height: '5vh' }} type="text" placeholder="Search Jobs" id="jobSearch" onChange={e => setUserJob(e.target.value)} />
-          <Form.Control style={{ height: '5vh' }} type="text" placeholder="Location" id="locationSearch" onChange={e => setUserLocation(e.target.value)} />
-          <Button type="submit" style={{ backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black', height: '5vh' }} onClick={handleSubmit}>Submit</Button>
+          <Form.Control style={{ height: '5vh', fontSize: '1vw' }} type="text" placeholder="Search Jobs" id="jobSearch" onChange={e => setUserJob(e.target.value)} />
+          <Form.Control style={{ height: '5vh', fontSize: '1vw' }} type="text" placeholder="Location" id="locationSearch" onChange={e => setUserLocation(e.target.value)} />
+          <Button type="submit" style={{ backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black', height: '5vh', fontSize: '1vw' }} onClick={handleSubmit}>Submit</Button>
         </InputGroup>
         <Row className='d-flex flex-row justify-content-center'>
           <Col xs={6} md={3}>

@@ -68,13 +68,13 @@ export default function JobComponent({setSelectedJob, job, i, user}) {
         }}
         >
           <Card.Body style={{display: 'flex', flexDirection: 'column' }} >
-          <Card.Title onClick={(e) => e.preventDefault()} className="d-flex justify-content-between align-items-center">
-            {job.title} {user ? (<img onClick={saveOrNot} key={i} className='bookmarkImg' src={saved ? 'photos/bookmark.png' : 'photos/bookmark-white.png'} alt="" />) : (<></>)}
+          <Card.Title onClick={(e) => e.preventDefault()} className="d-flex justify-content-between align-items-center" style={{fontSize: '1vw'}} >
+            {job.title} {user ? (<img style={{width: '1vw', height: '1vw'}} onClick={saveOrNot} key={i} className='bookmarkImg' src={saved ? 'photos/bookmark.png' : 'photos/bookmark-white.png'} alt="" />) : (<></>)}
             
           </Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">{job.company}</Card.Subtitle>
-            <Card.Text style={{marginTop: 'auto'}} >
-              <p className='smallTextCard'>{job.location} - {job.employmentType} - {job.datePosted}</p>
+            <Card.Subtitle className="mb-2 text-muted" style={{fontSize: '1vw'}} >{job.company}</Card.Subtitle>
+            <Card.Text style={{marginTop: 'auto', fontSize: '1vw'}} >
+              <p className='smallTextCard' style={{fontSize: '.7vw'}} >{job.location} - {job.employmentType} - {job.datePosted}</p>
             </Card.Text>
           </Card.Body>
         </Card>

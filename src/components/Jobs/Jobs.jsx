@@ -73,7 +73,7 @@ export default function Jobs({user, query, setQuery, location, setLocation, dist
         <Row className='emptyBar'>
           <div className="filterButton" style={{ display: "flex", justifyContent: 'space-around' }}>
             <Col xs={12} md={6} style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
-              <h3>Searching for <span style={{ color: '#11A7BB' }}>{query}</span> Jobs</h3>
+              <h3 style={{fontSize: '1.5vw'}} >Searching for <span style={{ color: '#11A7BB', fontSize: '1.5vw' }}>{query}</span> Jobs</h3>
             </Col>
             <Col xs={12} md={6} style={{ display: 'flex', alignItems: 'center' }}>
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
