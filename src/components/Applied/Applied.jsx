@@ -1,3 +1,4 @@
+import apiUrl from "../../apiConfig";
 import { Container } from "react-bootstrap"
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
@@ -7,6 +8,7 @@ import Stack from 'react-bootstrap/Stack';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { removeJob, updateJob } from "../../api/jobs";
 const axios = require('axios');
+
 
 
 export default function Applied({ user }) {
@@ -45,7 +47,7 @@ function doubleReload() {
         let configSaved = {
           method: 'get',
           maxBodyLength: Infinity,
-          url: 'http://localhost:8000/applied/saved',
+          url: `${apiUrl}/applied/saved`,
           headers: { 
             'Authorization': `Token token=${user.token}`
           },
@@ -55,7 +57,7 @@ function doubleReload() {
         let configApplied = {
           method: 'get',
           maxBodyLength: Infinity,
-          url: 'http://localhost:8000/applied/applied',
+          url: `${apiUrl}/applied/applied`,
           headers: { 
             'Authorization': `Token token=${user.token}`
           },
@@ -65,7 +67,7 @@ function doubleReload() {
         let configInterview = {
           method: 'get',
           maxBodyLength: Infinity,
-          url: 'http://localhost:8000/applied/interview',
+          url: `${apiUrl}/applied/interview`,
           headers: { 
             'Authorization': `Token token=${user.token}`
           },
@@ -75,7 +77,7 @@ function doubleReload() {
         let configRejected = {
           method: 'get',
           maxBodyLength: Infinity,
-          url: 'http://localhost:8000/applied/rejected',
+          url: `${apiUrl}/applied/rejected`,
           headers: { 
             'Authorization': `Token token=${user.token}`
           },
