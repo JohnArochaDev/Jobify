@@ -66,14 +66,14 @@ export default function FilterModal(props) {
     }
     if (document.getElementById('remoteOnlySwitch').checked) {
       remoteJobsOnly = 'true'
-      console.log('remoteJobsOnly1', remoteJobsOnly)
+      // console.log('remoteJobsOnly1', remoteJobsOnly)
     } else {
       remoteJobsOnly = 'false'
-      console.log('remoteJobsOnly2', remoteJobsOnly)
+      // console.log('remoteJobsOnly2', remoteJobsOnly)
     }
-    console.log('jobTypes', jobTypes)
-    console.log('distance', distance)
-    console.log('datePosted', datePosted)
+    // console.log('jobTypes', jobTypes)
+    // console.log('distance', distance)
+    // console.log('datePosted', datePosted)
     setEmploymentTypes(jobTypes)
     setDistance(distance)
     setDatePosted(datePosted)

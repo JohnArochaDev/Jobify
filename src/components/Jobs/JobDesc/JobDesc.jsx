@@ -36,7 +36,7 @@ export default function JobDesc({ uJob, user }) {
 }
   async function onSubmit(e) {
     e.preventDefault()
-    console.log('Form submitted!');
+    // console.log('Form submitted!');
 
     let userJob = {
         img: uJob.image,
@@ -48,7 +48,7 @@ export default function JobDesc({ uJob, user }) {
 
     await createJob(user, userJob)
         .then( res => {
-          console.log('Form was saved',res)
+          // console.log('Form was saved',res)
         handleClose()
       })
         .catch(err => {

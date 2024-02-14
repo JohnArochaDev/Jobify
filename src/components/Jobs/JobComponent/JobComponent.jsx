@@ -17,10 +17,10 @@ export default function JobComponent({setSelectedJob, job, i, user}) {
   }
 
   function removeSaved(user, id) {
-    console.log('this is the id', id)
+    // console.log('this is the id', id)
     removeJob(user, id)
     .then((response) => {
-      console.log('JOB REMOVED', response)
+      // console.log('JOB REMOVED', response)
     })
     .catch((error) => {
       console.log(error);
@@ -30,9 +30,9 @@ export default function JobComponent({setSelectedJob, job, i, user}) {
   async function handleSave(e) {
     e.preventDefault()
     e.stopPropagation()
-    console.log('Form submitted!');
-    console.log('This is the user: ', user)
-    console.log('This is the job at onClick: ', job)
+    // console.log('Form submitted!');
+    // console.log('This is the user: ', user)
+    // console.log('This is the job at onClick: ', job)
 
     let userJob = {
         img: job.image,
@@ -41,11 +41,11 @@ export default function JobComponent({setSelectedJob, job, i, user}) {
         status: 'saved',
         details: `${job.location} - ${job.employmentType} - ${job.datePosted}`,
     }
-    console.log('This is the user job: ', userJob)
+    // console.log('This is the user job: ', userJob)
 
     await createJob(user, userJob)
         .then( res => {
-          console.log('Form was saved',res)
+          // console.log('Form was saved',res)
           setDBId(res.data.job._id)
       })
         .catch(err => {

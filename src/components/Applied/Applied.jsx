@@ -34,7 +34,7 @@ function doubleReload() {
     interviewJob.status = status
     updateJob(user, interviewJob)
     .then((response) => {
-      console.log('JOB UPDATED', response)
+      // console.log('JOB UPDATED', response)
     })
     .catch((error) => {
       console.log(error);
@@ -86,19 +86,19 @@ function doubleReload() {
   
         const savedResponse = await axios.request(configSaved);
         setSavedJobs(savedResponse.data.jobs);
-        console.log('Saved Jobs:', savedResponse.data);
+        // console.log('Saved Jobs:', savedResponse.data);
   
         const appliedResponse = await axios.request(configApplied);
         setAppliedJobs(appliedResponse.data.jobs);
-        console.log('Applied Jobs:', appliedResponse.data);
+        // console.log('Applied Jobs:', appliedResponse.data);
   
         const interviewResponse = await axios.request(configInterview);
         setInterviewJobs(interviewResponse.data.jobs);
-        console.log('Interview Jobs:', interviewResponse.data);
+        // console.log('Interview Jobs:', interviewResponse.data);
   
         const rejectedResponse = await axios.request(configRejected);
         setRejectedJobs(rejectedResponse.data.jobs);
-        console.log('Rejected Jobs:', rejectedResponse.data);
+        // console.log('Rejected Jobs:', rejectedResponse.data);
         
       } catch (error) {
         console.log(error);

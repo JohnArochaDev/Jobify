@@ -26,8 +26,8 @@ export default function Home({setQuery, setLocation } ) {
 
 	function handleSubmit(e) {
 		e.preventDefault()
-		console.log('user location', userLocation)
-		console.log('user job', userJob)
+		// console.log('user location', userLocation)
+		// console.log('user job', userJob)
 		setLocation(userLocation)
 		setQuery(userJob)
 		navigate('/jobs')
