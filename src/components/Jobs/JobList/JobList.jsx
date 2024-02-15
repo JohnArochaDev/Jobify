@@ -29,6 +29,7 @@ export default function JobList({ jobs, reload, setReload, setSelectedJob, index
         i={i}
         setSelectedJob={setSelectedJob}
         user={user}
+        key={uuid()}
         />
       ))) : (
         <JobComponentLoad

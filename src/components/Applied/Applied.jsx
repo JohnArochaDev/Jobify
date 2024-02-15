@@ -145,7 +145,7 @@ function doubleReload() {
                 <br />
                 <p className='smallTextCard' >{job.details}</p>
               </div>))
-            ) : (<p>Henlo</p>)}
+            ) : (<p>Go save some jobs!</p>)}
           </Stack>
         </Tab>
 
@@ -175,7 +175,7 @@ function doubleReload() {
                 <br />
                 <p className='smallTextCard' >{job.details}</p>
               </div>))
-            ) : (<p>Henlo</p>)}
+            ) : (<p>Go apply!</p>)}
           </Stack>
         </Tab>
 
@@ -205,7 +205,7 @@ function doubleReload() {
                 <br />
                 <p className='smallTextCard' >{job.details}</p>
               </div>))
-            ) : (<p>Henlo</p>)}
+            ) : (<p>Get an interview!</p>)}
           </Stack>
         </Tab>
 
@@ -235,7 +235,7 @@ function doubleReload() {
                 <br />
                 <p className='smallTextCard' >{job.details}</p>
               </div>))
-            ) : (<p>Henlo</p>)}
+            ) : (<p>Try again!</p>)}
           </Stack>
         </Tab>
       </Tabs>
