@@ -19,6 +19,10 @@ export default function Applied({ user }) {
   const [appliedJobs, setAppliedJobs] = useState(null)
   const [interviewJobs, setInterviewJobs] = useState(null)
   const [rejectedJobs, setRejectedJobs] = useState(null)
+  const [flipSavedJobs, setFlipSavedJobs] = useState(null)
+  const [flipAppliedJobs, setFlipAppliedJobs] = useState(null)
+  const [flipInterviewJobs, setFlipInterviewJobs] = useState(null)
+  const [flipRejectedJobs, setFlipRejectedJobs] = useState(null)
 
   const [reload, setReload] = useState(false)
 
@@ -85,7 +89,8 @@ function doubleReload() {
         };
   
         const savedResponse = await axios.request(configSaved);
-        setSavedJobs(savedResponse.data.jobs);
+        setFlipSavedJobs(savedResponse.data.jobs);
+        setSavedJobs(flipSavedJobs.reverse());
         // console.log('Saved Jobs:', savedResponse.data);
   
         const appliedResponse = await axios.request(configApplied);
