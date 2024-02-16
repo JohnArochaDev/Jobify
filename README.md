@@ -60,23 +60,3 @@ As a job seeker:
 - For issues or assistance, contact jparocha777@gmail.com.
 
 Happy job hunting! 🚀
-
-
-<Card.Body style={{display: 'flex', flexDirection: 'column' }} >
-   <Card.Title>{job.title}</Card.Title>
-   <Card.Subtitle className="mb-2 text-muted">{job.company}</Card.Subtitle>
-   <Card.Text style={{marginTop: 'auto'}} >
-      <p className='smallTextCard'>{job.location} - {job.employmentType} - {job.datePosted}</p>
-   </Card.Text>
-   </Card.Body>
-</Card>
-
-<Card style={{display: 'flex', flexDirection: 'column' }}>
-  <Card.Img src="holder.js/100px270" alt="Card image" />
-  <Card.ImgOverlay>
-    <Card.Title>Card title</Card.Title>
-    <Card.Text>
-    </Card.Text>
-    <Card.Text>Last updated 3 mins ago</Card.Text>
-  </Card.ImgOverlay>
-</Card>
