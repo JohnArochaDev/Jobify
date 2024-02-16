@@ -19,6 +19,7 @@ export default function Applied({ user }) {
   const [appliedJobs, setAppliedJobs] = useState(null)
   const [interviewJobs, setInterviewJobs] = useState(null)
   const [rejectedJobs, setRejectedJobs] = useState(null)
+  const [activeTab, setActiveTab] = useState('applied')
 
   const [reload, setReload] = useState(false)
 
@@ -113,14 +114,15 @@ function doubleReload() {
   return (
     <Container>
       <Tabs
-        defaultActiveKey="profile"
+        activeKey={activeTab}
+        onSelect={(key) => setActiveTab(key)}
         id="fill-tab-example"
         className="mb-3"
         fill
       >
 
 
-        <Tab eventKey="saved" title="Saved">
+        <Tab eventKey="saved" title="Saved" >
           <h2 style={{ textAlign: 'center', textDecoration: 'underline' }}>Saved</h2>
           <br />
           <Stack  style={{display: 'flex'}} gap={3}>
@@ -145,7 +147,7 @@ function doubleReload() {
                 <br />
                 <p className='smallTextCard' >{job.details}</p>
               </div>))
-            ) : (<p>Go save some jobs!</p>)}
+            ) : (null)}
           </Stack>
         </Tab>
 
@@ -175,12 +177,12 @@ function doubleReload() {
                 <br />
                 <p className='smallTextCard' >{job.details}</p>
               </div>))
-            ) : (<p>Go apply!</p>)}
+            ) : (null)}
           </Stack>
         </Tab>
 
 
-        <Tab eventKey="interview" title="Interviews">
+        <Tab eventKey="interview" title="Interviews" >
           <h2 style={{ textAlign: 'center', textDecoration: 'underline' }}>Interviews</h2>
           <br />
           <Stack  style={{display: 'flex'}} gap={3}>
@@ -205,12 +207,12 @@ function doubleReload() {
                 <br />
                 <p className='smallTextCard' >{job.details}</p>
               </div>))
-            ) : (<p>Get an interview!</p>)}
+            ) : (null)}
           </Stack>
         </Tab>
 
 
-        <Tab eventKey="rejected" title="Rejected">
+        <Tab eventKey="rejected" title="Rejected"  >
           <h2 style={{ textAlign: 'center', textDecoration: 'underline' }}>Rejections</h2>
           <br />
           <Stack  style={{display: 'flex'}} gap={3}>
@@ -235,7 +237,7 @@ function doubleReload() {
                 <br />
                 <p className='smallTextCard' >{job.details}</p>
               </div>))
-            ) : (<p>Try again!</p>)}
+            ) : (null)}
           </Stack>
         </Tab>
       </Tabs>
