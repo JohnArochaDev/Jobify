@@ -69,7 +69,7 @@ export default function JobDesc({ uJob, user }) {
               {uJob.description}
               <br />
               <ListGroup key={uuid()} className="d-flex mx-auto" style={{ width: '30vw' }}>
-                <ListGroup.Item key={uuid()} action>
+                <ListGroup.Item key={uuid()}>
                     <h3 >Apply Now</h3>
                 </ListGroup.Item >
                 {uJob.jobProviders?.map((provider) => {
