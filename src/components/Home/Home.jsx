@@ -19,18 +19,20 @@ export default function Home({setQuery, setLocation, userJobo, setUserJobo, user
     overflow: 'hidden',
   };
 
-	const [userLocation, setUserLocation] = useState('')
-	const [userJob, setUserJob] = useState('')
+	const [userLocation, setUserLocation] = useState(null)
+	const [userJob, setUserJob] = useState(null)
 
 	const navigate = useNavigate()
 
 	function handleSubmit(e) {
 		e.preventDefault()
-		// console.log('user location', userLocation)
-		// console.log('user job', userJob)
+    if (userLocation && userJob) {
 		setLocation(userLocation)
 		setQuery(userJob)
 		navigate('/jobs')
+    } else { 
+      alert('Please enter a job and location')
+    }
 	}
 
   function buttonSumbit(jobName) {
@@ -50,8 +52,8 @@ export default function Home({setQuery, setLocation, userJobo, setUserJobo, user
             <h2 style={{ fontSize: '4vh', color: '#2AABB6', fontFamily: 'Paytone One', paddingTop: '15vh' }}>Let's <span style={{ color: '#2AB635', textDecoration: 'underline' }}>introduce</span> you to your future</h2>
             <Form>
               <InputGroup style={{ paddingTop: '5vh', paddingBottom: '5vh' }}>
-                <Form.Control style={{ height: '5vh', fontSize: '1vw' }} type="text" placeholder="Search Jobs" id="jobSearch" onChange={e => setUserJob(e.target.value)} />
-                <Form.Control style={{ height: '5vh', fontSize: '1vw' }} type="text" placeholder="Location" id="locationSearch" onChange={e => setUserLocation(e.target.value)} />
+                <Form.Control style={{ height: '5vh', fontSize: '1vw' }} type="text" placeholder="Search Jobs" id="jobSearch" onChange={e => setUserJob(e.target.value)} required/>
+                <Form.Control style={{ height: '5vh', fontSize: '1vw' }} type="text" placeholder="Location" id="locationSearch" onChange={e => setUserLocation(e.target.value)} required/>
                 <Button type="submit" style={{ backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black', height: '5vh', fontSize: '1vw' }} onClick={handleSubmit}>Submit</Button>
               </InputGroup>
               <Row className='d-flex flex-row justify-content-center'>
