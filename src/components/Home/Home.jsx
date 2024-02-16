@@ -3,6 +3,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../shared/Footer';
+import RequiredModal from '../Jobs/Modal/RequiredModal'
 
 import './Home.css'
 
@@ -18,11 +19,14 @@ export default function Home({setQuery, setLocation, userJobo, setUserJobo, user
     fontSize: '1.2em',
     overflow: 'hidden',
   };
-
+  const [show, setShow] = useState(false);
 	const [userLocation, setUserLocation] = useState(null)
 	const [userJob, setUserJob] = useState(null)
 
 	const navigate = useNavigate()
+
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
 
 	function handleSubmit(e) {
 		e.preventDefault()
@@ -31,7 +35,7 @@ export default function Home({setQuery, setLocation, userJobo, setUserJobo, user
 		setQuery(userJob)
 		navigate('/jobs')
     } else { 
-      alert('Please enter a job and location')
+      handleShow(true)
     }
 	}
 
@@ -46,6 +50,10 @@ export default function Home({setQuery, setLocation, userJobo, setUserJobo, user
 
 	return (
     <>
+    <RequiredModal
+    handleClose={handleClose}
+    show={show}
+     />
       <Container className="bgColor" fluid>
         <Row className='emptyBar' style={{ height: 'auto', minHeight: 'auto', display: 'flex', justifyContent: 'center' }}>
           <Col xs={12} md={6} className="text-center">
