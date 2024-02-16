@@ -116,11 +116,8 @@ const SignUp = (props) => {
                 />
               </Form.Group>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Button variant='primary' type='submit'>
+                <Button variant='primary' type='submit' style={{marginTop: '2vh'}} >
                   Submit
-                </Button>
-                <Button variant='primary' type='submit'>
-                  Sign Up
                 </Button>
               </div>
             </Form>

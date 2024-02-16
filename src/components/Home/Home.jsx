@@ -6,7 +6,7 @@ import Footer from '../shared/Footer';
 
 import './Home.css'
 
-export default function Home({setQuery, setLocation } ) {
+export default function Home({setQuery, setLocation, userJobo, setUserJobo, userLocationo, setUserLocationo } ) {
 
   const button = {
     width: '19vh',
@@ -36,7 +36,9 @@ export default function Home({setQuery, setLocation } ) {
   function buttonSumbit(jobName) {
     let loc = 'United States'
     setQuery(jobName)
+    setUserJobo(jobName)
     setLocation(loc)
+    setUserLocationo(loc)
     navigate('/jobs')
   }
 

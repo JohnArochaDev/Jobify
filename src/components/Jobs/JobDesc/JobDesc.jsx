@@ -76,7 +76,7 @@ export default function JobDesc({ uJob, user }) {
                   value++
                   return <ListGroup.Item action href={provider.url} target="_blank" id={randomNumbers[value]} key={uuid()} onClick={handleShow} >{provider.jobProvider}  </ListGroup.Item>
                 })}
-                <Modal key={uuid()} show={show} onHide={handleClose}>
+                <Modal key={uuid()} show={show} onHide={handleClose} style={{marginTop: '20vh'}} >
                   <Modal.Header closeButton>
                     <Modal.Title>Did you Apply with {uJob.company}? </Modal.Title>
                   </Modal.Header>
@@ -85,7 +85,7 @@ export default function JobDesc({ uJob, user }) {
                     <Button style={{width: '7vw', backgroundColor: 'green', borderColor: 'green'}} type="button" onClick={onSubmit}>
                       Yes
                     </Button>
-                    <Button style={{width: '7vw', backgroundColor: 'red', borderColor: 'red'}} >
+                    <Button style={{width: '7vw', backgroundColor: 'red', borderColor: 'red'}} onClick={handleClose} >
                       No
                     </Button>
                   </Modal.Footer>

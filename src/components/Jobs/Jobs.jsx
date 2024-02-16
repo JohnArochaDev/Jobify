@@ -5,7 +5,6 @@ import { Container, Row, Col } from "react-bootstrap"
 import Button from 'react-bootstrap/Button';
 
 import Form from 'react-bootstrap/Form';
-import MyVerticallyCenteredModal from './Modal/FilterModal'
 import './Jobs.css'
 import FilterModal from "./Modal/FilterModal";
 
@@ -14,7 +13,7 @@ require('dotenv').config()
 
 const axios = require('axios');
 
-export default function Jobs({user, query, setQuery, location, setLocation, distance, setDistance, language, setLanguage, remoteOnly, setRemoteOnly, datePosted, setDatePosted, employmentTypes, setEmploymentTypes, index, setIndex }) {
+export default function Jobs({user, userJob, setUserJob, query, setQuery, location, setLocation, distance, setDistance, language, setLanguage, remoteOnly, setRemoteOnly, datePosted, setDatePosted, employmentTypes, setEmploymentTypes, index, setIndex, userLocation, setUserLocation}) {
 
   const [modalShow, setModalShow] = useState(false);
 
@@ -23,8 +22,8 @@ export default function Jobs({user, query, setQuery, location, setLocation, dist
   const [jobs, setJobs] = useState()
   const [selectedJob, setSelectedJob] = useState(null)
 
-  const [userLocation, setUserLocation] = useState('')
-  const [userJob, setUserJob] = useState('')
+  // const [userLocation, setUserLocation] = useState('')
+ 
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -79,8 +78,8 @@ export default function Jobs({user, query, setQuery, location, setLocation, dist
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                 <Form>
                   <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                    <Form.Control xs={12} md={4} style={{ marginRight: '1vh', marginBottom: '1rem', width: '30vh' }} type="text" placeholder="Search Jobs" id="jobSearch" onChange={e => setUserJob(e.target.value)} />
-                    <Form.Control xs={12} md={4} style={{ marginRight: '1vh', marginBottom: '1rem', width: '30vh' }} type="text" placeholder="Location" id="locationSearch" onChange={e => setUserLocation(e.target.value)} />
+                    <Form.Control xs={12} md={4} style={{ marginRight: '1vh', marginBottom: '1rem', width: '30vh' }} type="text" placeholder="Search Jobs" id="jobSearch" onChange={e => setUserJob(e.target.value)} value={userJob} />
+                    <Form.Control xs={12} md={4} style={{ marginRight: '1vh', marginBottom: '1rem', width: '30vh' }} type="text" placeholder="Location" id="locationSearch" onChange={e => setUserLocation(e.target.value)} value={userLocation}/>
                     <Button type="submit" style={{ marginRight: '1vh', marginBottom: '1rem', backgroundColor: '#2AABB6', border: '#2AABB6', color: 'black' }} onClick={handleSubmit}>Submit</Button>
                   </div>
                 </Form>

@@ -30,6 +30,8 @@ const App = () => {
   const [datePosted, setDatePosted] = useState('month')
   const [employmentTypes, setEmploymentTypes] = useState('fulltime;parttime;intern;contractor') //fulltime;parttime;intern;contractor
   const [index, setIndex] = useState('0')
+	const [userJob, setUserJob] = useState('')
+	const [userLocation, setUserLocation] = useState('')
 
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
@@ -78,6 +80,10 @@ const App = () => {
 					setQuery={setQuery}
 					location={location}
 					setLocation={setLocation}
+					userJobo={userJob}
+					setUserJobo={setUserJob}
+					userLocationo={userLocation}
+					setUserLocationo={setUserLocation}
 					/>} />
 					<Route
 						path='/sign-up'
@@ -103,6 +109,10 @@ const App = () => {
 							index={index}
 							setIndex={setIndex}
 							user={user}
+							userJob={userJob}
+							setUserJob={setUserJob}
+							userLocation={userLocation}
+							setUserLocation={setUserLocation}
 							 />}
 					/>
 					<Route
