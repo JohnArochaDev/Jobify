@@ -42,7 +42,9 @@ As a job seeker:
 
 ## Wireframe
 
-![alt text](public/photos/wireframe.png)
+![alt text](public/photos/homepage.png)
+
+![alt text](public/photos/page.png)
 
 ## ERD
 
